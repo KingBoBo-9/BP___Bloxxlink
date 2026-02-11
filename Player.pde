@@ -7,17 +7,6 @@ void drawPlayer() {
   square(playerX, playerY, playerSize);
 }
 
-void movePlayer() {
-}
-
-int getPlayerX() {
-  return playerX;
-}
-
-int getPlayerY() {
-  return playerY;
-}
-
 void movePlayer(String direction) {
   if (direction == "UP") {
     if (playerY >= 0 + playerSize) {
@@ -36,4 +25,12 @@ void movePlayer(String direction) {
       playerX += playerSize;
     }
   }
+}
+
+int getPlayerX() {
+  return playerX;
+}
+
+int getPlayerY() {
+  return playerY;
 }

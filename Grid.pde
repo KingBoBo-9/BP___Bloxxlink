@@ -1,6 +1,10 @@
 int gridWidth = 10;
 int gridHeight = 8;
 int gridSquareSize = 30;
+int numberOfObstacles = 1;
+
+int totalGridWidth = gridWidth * gridSquareSize;
+int totalGridHeight = gridHeight * gridSquareSize;
 
 void drawGrid() {
   int squareX = 0;
@@ -17,8 +21,20 @@ void drawGrid() {
   }
 }
 
-void drawObstacles() {
-}
+//Hier was je bezig
+
+// void drawObstacles() {
+//   int obstacleX = int(random(totalGridWidth));
+//   int obstacleY = int(random(totalGridHeight));
+//   print("obstacleX = " + obstacleX + "obstacleY = " + obstacleY);
+
+//   stroke(255, 0, 0);
+//   strokeWeight(3);
+//   line(obstacleX, obstacleY, obstacleX, obstacleY);
+
+//   fill(#18EAD7);
+//   square(120, 120, gridSquareSize);
+// }
 
 int getGridWidth() {
   return gridWidth * gridSquareSize;
