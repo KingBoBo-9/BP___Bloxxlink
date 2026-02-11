@@ -1,0 +1,5 @@
+void drawScore() {
+}
+
+void updateScore() {
+}

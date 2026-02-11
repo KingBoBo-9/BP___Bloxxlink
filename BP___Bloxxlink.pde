@@ -1,4 +1,4 @@
-//Is squareSize nodig?
+
 
 void setup() {
   size(800, 700);

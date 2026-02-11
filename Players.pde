@@ -1,0 +1,5 @@
+void drawPlayer() {
+}
+
+void movePlayer() {
+}

@@ -11,3 +11,6 @@ void drawGrid(int gridWidth, int gridHeight, int squareSize) {
     squareY = 0;
   }
 }
+
+void drawObstacles() {
+}
