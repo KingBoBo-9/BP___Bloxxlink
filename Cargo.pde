@@ -1,5 +1,5 @@
-drawCargo() {
+void drawCargo() {
 }
 
-moveCargo() {
+void moveCargo() {
 }

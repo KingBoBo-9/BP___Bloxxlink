@@ -4,6 +4,7 @@ void drawGrid(int gridWidth, int gridHeight, int squareSize) {
 
   for (int i = 0; i < gridWidth; i++) {
     for (int j = 0; j < gridHeight; j++) {
+      fill(255);
       square(squareX, squareY, squareSize);
       squareY += squareSize;
     }
