@@ -17,3 +17,15 @@ int getPlayerX() {
 int getPlayerY() {
   return playerY;
 }
+
+void movePlayer(String direction) {
+  if (direction == "UP") {
+    playerY -= playerSize;
+  } else if (direction == "DOWN") {
+    playerY += playerSize;
+  } else if (direction == "LEFT") {
+    playerX -= playerSize;
+  } else if (direction == "RIGHT") {
+    playerX += playerSize;
+  }
+}
