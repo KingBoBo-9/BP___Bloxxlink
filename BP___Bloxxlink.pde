@@ -1,5 +1,13 @@
+//Is squareSize nodig?
 
+void setup() {
+  size(800, 700);
 
-setup(){
-    size(600, 400));
+  drawGrid(10, 8, 30);
+}
+
+void draw() {
+}
+
+void keyPressed() {
 }
