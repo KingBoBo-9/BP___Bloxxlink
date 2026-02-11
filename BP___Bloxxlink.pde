@@ -1,12 +1,12 @@
 
 void setup() {
   size(500, 400);
+  drawMap(width / 2, height / 2);
 }
 
 void draw() {
   drawGrid();
-  drawPlayer();
-  drawObstacles();
+  // drawPlayer();
 }
 
 void keyPressed() {

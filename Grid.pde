@@ -3,12 +3,17 @@ int gridHeight = 8;
 int gridSquareSize = 30;
 int numberOfObstacles = 1;
 
-int totalGridWidth = gridWidth * gridSquareSize;
-int totalGridHeight = gridHeight * gridSquareSize;
+int gridTotalWidth = gridWidth * gridSquareSize;
+int gridTotalHeight = gridHeight * gridSquareSize;
+
+void drawMap(int x, int y) {
+  rectMode(CENTER);
+  rect(x, y, gridTotalWidth, gridTotalHeight);
+}
 
 void drawGrid() {
-  int squareX = 0;
-  int squareY = 0;
+  int squareX = width / 2;
+  int squareY = height / 2;
 
   for (int i = 0; i < gridWidth; i++) {
     for (int j = 0; j < gridHeight; j++) {
@@ -17,29 +22,16 @@ void drawGrid() {
       squareY += gridSquareSize;
     }
     squareX += gridSquareSize;
-    squareY = 0;
+    squareY = height / 3;
   }
 }
 
-//Hier was je bezig
 
-// void drawObstacles() {
-//   int obstacleX = int(random(totalGridWidth));
-//   int obstacleY = int(random(totalGridHeight));
-//   print("obstacleX = " + obstacleX + "obstacleY = " + obstacleY);
-
-//   stroke(255, 0, 0);
-//   strokeWeight(3);
-//   line(obstacleX, obstacleY, obstacleX, obstacleY);
-
-//   fill(#18EAD7);
-//   square(120, 120, gridSquareSize);
-// }
 
 int getGridWidth() {
-  return gridWidth * gridSquareSize;
+  return gridTotalWidth;
 }
 
 int getGridHeight() {
-  return gridHeight * gridSquareSize;
+  return gridTotalHeight;
 }
