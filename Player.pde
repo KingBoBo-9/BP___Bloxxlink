@@ -20,12 +20,20 @@ int getPlayerY() {
 
 void movePlayer(String direction) {
   if (direction == "UP") {
-    playerY -= playerSize;
+    if (playerY >= 0 + playerSize) {
+      playerY -= playerSize;
+    }
   } else if (direction == "DOWN") {
-    playerY += playerSize;
+    if (playerY < getGridHeight() - playerSize) {
+      playerY += playerSize;
+    }
   } else if (direction == "LEFT") {
-    playerX -= playerSize;
+    if (playerX >= 0 + playerSize) {
+      playerX -= playerSize;
+    }
   } else if (direction == "RIGHT") {
-    playerX += playerSize;
+    if (playerX < getGridWidth() - playerSize) {
+      playerX += playerSize;
+    }
   }
 }
