@@ -6,6 +6,7 @@ void setup() {
 
 void draw() {
   drawGrid();
+  drawScore();
   // drawPlayer();
 }
 
