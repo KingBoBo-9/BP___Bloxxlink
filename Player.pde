@@ -1,10 +1,16 @@
-int playerX = 0;
-int playerY = 0;
+int playerX, playerY;
 int playerSize = 30;
+
+void initPlayer() {
+  playerX = width / 2;
+  playerY = height / 2;
+}
+
 
 void drawPlayer() {
   fill(#FCB824);
   square(playerX, playerY, playerSize);
+  print(calculateGridX());
 }
 
 void movePlayer(String direction) {

@@ -2,12 +2,13 @@
 void setup() {
   size(500, 400);
   drawMap(width / 2, height / 2);
+  initPlayer();
 }
 
 void draw() {
   drawGrid();
   drawScore();
-  // drawPlayer();
+  drawPlayer();
 }
 
 void keyPressed() {

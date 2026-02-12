@@ -1,4 +1,4 @@
-int gridWidth = 10;
+int gridWidth = 14;
 int gridHeight = 8;
 int gridSquareSize = 30;
 int numberOfObstacles = 1;

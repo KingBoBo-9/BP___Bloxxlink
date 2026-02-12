@@ -7,4 +7,5 @@ void drawScore() {
 }
 
 void updateScore() {
+  player1Score -= 1;
 }
