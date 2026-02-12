@@ -8,14 +8,13 @@ int gridTotalHeight = gridHeight * gridSquareSize;
 
 int gridX, gridY;
 
-
-
-
+//Draw the game Map
 void drawMap(int mapX, int mapY) {
   rectMode(CENTER);
   rect(mapX, mapY, gridTotalWidth, gridTotalHeight);
 }
 
+//Draw grid on top of game Map
 void drawGrid() {
   gridX = calculateGridX();
   gridY = calculateGridY();
@@ -32,6 +31,7 @@ void drawGrid() {
   }
 }
 
+//Getters
 int calculateGridX() {
   return gridX = width / 2 - gridTotalWidth / 2;
 }

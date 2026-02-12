@@ -1,6 +1,7 @@
 int playerX, playerY;
 int playerSize = 30;
 
+//Sets player spawn point
 void initPlayer() {
   playerX = width / 2;
   playerY = height / 2;
@@ -10,7 +11,6 @@ void initPlayer() {
 void drawPlayer() {
   fill(#FCB824);
   square(playerX, playerY, playerSize);
-  print(calculateGridX());
 }
 
 void movePlayer(String direction) {
@@ -19,7 +19,7 @@ void movePlayer(String direction) {
       playerY -= playerSize;
     }
   } else if (direction == "DOWN") {
-    if (playerY < getGridHeight() - playerSize) {
+    if (playerY <= getGridHeight() - playerSize) {
       playerY += playerSize;
     }
   } else if (direction == "LEFT") {
