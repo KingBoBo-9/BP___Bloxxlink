@@ -12,8 +12,9 @@ void drawMap(int x, int y) {
 }
 
 void drawGrid() {
-  int squareX = width / 2;
-  int squareY = height / 2;
+  rectMode(CORNER);
+  int squareX = width / 2 - gridTotalWidth / 2;
+  int squareY = height / 2 - gridTotalHeight /2 ;
 
   for (int i = 0; i < gridWidth; i++) {
     for (int j = 0; j < gridHeight; j++) {
@@ -22,7 +23,7 @@ void drawGrid() {
       squareY += gridSquareSize;
     }
     squareX += gridSquareSize;
-    squareY = height / 3;
+    squareY = height / 2 - gridTotalHeight /2;
   }
 }
 

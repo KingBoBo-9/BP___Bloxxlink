@@ -1,4 +1,3 @@
-//Hier was je bezig
 
 // void drawObstacles() {
 //   int obstacleX = int(random(totalGridWidth));
