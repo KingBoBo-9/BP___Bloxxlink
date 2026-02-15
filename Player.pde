@@ -17,18 +17,22 @@ void movePlayer(String direction) {
   if (direction == "UP") {
     if (playerY >= 0 + playerSize) {
       playerY -= playerSize;
+      updateScore();
     }
   } else if (direction == "DOWN") {
     if (playerY <= getGridHeight() - playerSize) {
       playerY += playerSize;
+      updateScore();
     }
   } else if (direction == "LEFT") {
     if (playerX >= 0 + playerSize) {
       playerX -= playerSize;
+      updateScore();
     }
   } else if (direction == "RIGHT") {
     if (playerX < getGridWidth() - playerSize) {
       playerX += playerSize;
+      updateScore();
     }
   }
 }

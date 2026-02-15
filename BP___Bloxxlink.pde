@@ -1,11 +1,14 @@
+void settings() {
+  size(500, 400);
+}
 
 void setup() {
-  size(500, 400);
   drawMap(width / 2, height / 2);
   initPlayer();
 }
 
 void draw() {
+  background(100);
   drawGrid();
   drawScore();
   drawPlayer();
