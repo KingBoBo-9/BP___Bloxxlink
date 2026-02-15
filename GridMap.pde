@@ -1,7 +1,6 @@
 int gridWidth = 14;
 int gridHeight = 8;
 int gridSquareSize = 30;
-int numberOfObstacles = 1;
 
 int gridTotalWidth = gridWidth * gridSquareSize;
 int gridTotalHeight = gridHeight * gridSquareSize;
@@ -46,4 +45,12 @@ int getGridWidth() {
 
 int getGridHeight() {
   return gridTotalHeight;
+}
+
+int getGridX() {
+  return gridX;
+}
+
+int getGridY() {
+  return gridY;
 }

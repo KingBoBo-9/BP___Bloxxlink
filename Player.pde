@@ -15,22 +15,22 @@ void drawPlayer() {
 
 void movePlayer(String direction) {
   if (direction == "UP") {
-    if (playerY >= 0 + playerSize) {
+    if (playerY >= getGridY() + playerSize) {
       playerY -= playerSize;
       updateScore();
     }
   } else if (direction == "DOWN") {
-    if (playerY <= getGridHeight() - playerSize) {
+    if (playerY < getGridHeight() + getGridY() - playerSize) {
       playerY += playerSize;
       updateScore();
     }
   } else if (direction == "LEFT") {
-    if (playerX >= 0 + playerSize) {
+    if (playerX >= getGridX() + playerSize) {
       playerX -= playerSize;
       updateScore();
     }
   } else if (direction == "RIGHT") {
-    if (playerX < getGridWidth() - playerSize) {
+    if (playerX < getGridWidth() + gridX - playerSize ) {
       playerX += playerSize;
       updateScore();
     }
