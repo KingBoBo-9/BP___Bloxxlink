@@ -1,3 +1,5 @@
+
+
 void settings() {
   size(500, 400);
   // fullScreen();
@@ -18,6 +20,10 @@ void draw() {
 }
 
 void keyPressed() {
+  //initialise player X
+  int nextPlayerX = getPlayerX();
+  int nextPlayerY = getPlayerY();
+
   if (key == CODED) {
     if (keyCode == UP) {
       movePlayer("UP");
@@ -25,7 +31,18 @@ void keyPressed() {
       movePlayer("DOWN");
     } else if (keyCode == LEFT) {
       movePlayer("LEFT");
+      nextPlayerX -= getGridSquareSize();
+      if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
+        cargoX -= (nextPlayerX - getPlayerX());
+      }
     } else if (keyCode == RIGHT) {
+      //calculate where player wants to go
+      nextPlayerX += getGridSquareSize();
+      //check if cargo is at this position
+      if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
+        //move cargo
+        cargoX += (nextPlayerX - getPlayerX());
+      }
       movePlayer("RIGHT");
     }
   }

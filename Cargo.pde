@@ -1,6 +1,7 @@
 int cargoSize = 30;
 int cargoX, cargoY;
 
+
 void initCargo() {
   cargoX = width / 2;
   cargoY = height / 2;
@@ -12,5 +13,12 @@ void drawCargo() {
   square(cargoX, cargoY, cargoSize);
 }
 
-void moveCargo() {
+
+int getCargoX() {
+  return cargoX;
 }
+
+int getCargoY() {
+  return cargoY;
+}
+

@@ -3,8 +3,8 @@ int playerSize = getGridSquareSize();
 
 //Sets player spawn point
 void initPlayer() {
-  playerX = width / 2;
-  playerY = height / 2;
+  playerX = width / 2 - playerSize;
+  playerY = height / 2 - playerSize;
 }
 
 
