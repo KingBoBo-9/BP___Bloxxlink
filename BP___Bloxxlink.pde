@@ -26,15 +26,23 @@ void keyPressed() {
 
   if (key == CODED) {
     if (keyCode == UP) {
+      nextPlayerY -= getGridSquareSize();
+      if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
+        cargoY += (nextPlayerY - getPlayerY());
+      }
       movePlayer("UP");
     } else if (keyCode == DOWN) {
+      nextPlayerY += getGridSquareSize();
+      if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
+        cargoY += (nextPlayerY - getPlayerY());
+      }
       movePlayer("DOWN");
     } else if (keyCode == LEFT) {
-      movePlayer("LEFT");
       nextPlayerX -= getGridSquareSize();
       if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
-        cargoX -= (nextPlayerX - getPlayerX());
+        cargoX += (nextPlayerX - getPlayerX());
       }
+      movePlayer("LEFT");
     } else if (keyCode == RIGHT) {
       //calculate where player wants to go
       nextPlayerX += getGridSquareSize();
