@@ -1,5 +1,5 @@
 int playerX, playerY;
-int playerSize = 30;
+int playerSize = getGridSquareSize();
 
 //Sets player spawn point
 void initPlayer() {
@@ -10,7 +10,8 @@ void initPlayer() {
 
 void drawPlayer() {
   fill(#FCB824);
-  square(playerX, playerY, playerSize);
+  ellipseMode(CORNER);
+  circle(playerX, playerY, playerSize);
 }
 
 void movePlayer(String direction) {

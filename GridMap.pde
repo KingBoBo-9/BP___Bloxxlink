@@ -54,3 +54,7 @@ int getGridX() {
 int getGridY() {
   return gridY;
 }
+
+int getGridSquareSize() {
+  return gridSquareSize;
+}
