@@ -1,9 +1,9 @@
-int gridWidth = 14;
-int gridHeight = 8;
-int gridSquareSize = 30;
+int gridColumns = 14;
+int gridRows = 8;
+int cellSize = 30;
 
-int gridTotalWidth = gridWidth * gridSquareSize;
-int gridTotalHeight = gridHeight * gridSquareSize;
+int gridTotalWidth = gridColumns * cellSize;
+int gridTotalHeight = gridRows * cellSize;
 
 int gridX, gridY;
 
@@ -18,14 +18,14 @@ void drawGrid() {
   gridX = calculateGridX();
   gridY = calculateGridY();
 
-  for (int i = 0; i < gridWidth; i++) {
-    for (int j = 0; j < gridHeight; j++) {
+  for (int i = 0; i < gridColumns; i++) {
+    for (int j = 0; j < gridRows; j++) {
       fill(255);
       rectMode(CORNER);
-      square(gridX, gridY, gridSquareSize);
-      gridY += gridSquareSize;
+      square(gridX, gridY, cellSize);
+      gridY += cellSize;
     }
-    gridX += gridSquareSize;
+    gridX += cellSize;
     gridY = height / 2 - gridTotalHeight /2;
   }
 }
@@ -55,6 +55,6 @@ int getGridY() {
   return gridY;
 }
 
-int getGridSquareSize() {
-  return gridSquareSize;
+int getcellSize() {
+  return cellSize;
 }

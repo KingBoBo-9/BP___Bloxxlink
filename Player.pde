@@ -1,5 +1,5 @@
 int playerX, playerY;
-int playerSize = getGridSquareSize();
+int playerSize = getcellSize();
 
 //Sets player spawn point
 void initPlayer() {
