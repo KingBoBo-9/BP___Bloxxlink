@@ -7,6 +7,7 @@ void setup() {
   drawMap(width / 2, height / 2);
   initPlayer();
   initCargo();
+  initObstacle();
 }
 
 
@@ -17,6 +18,7 @@ void draw() {
   drawScore();
   drawCargo();
   drawPlayer();
+  drawObstacle();
 }
 
 void keyPressed() {
