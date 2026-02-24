@@ -1,5 +1,3 @@
-
-
 void settings() {
   size(500, 400);
   // fullScreen();
@@ -10,6 +8,8 @@ void setup() {
   initPlayer();
   initCargo();
 }
+
+
 
 void draw() {
   background(100);

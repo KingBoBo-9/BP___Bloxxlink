@@ -3,12 +3,19 @@ int cargoX, cargoY;
 
 
 void initCargo() {
-  cargoX = width / 2;
-  cargoY = height / 2;
+  int cargoCol = int(random(getGridColumns()));
+  int cargoRow = int(random(getGridRows()));
+
+  cargoX = calculateGridX() + cargoCol * cellSize;
+  cargoY = calculateGridY() + cargoRow * cellSize;
+
+  println("cargoCol: " + cargoCol);
+  println("cargoRow: " + cargoRow);
 }
 
 
 void drawCargo() {
+  rectMode(CORNER);
   fill(#17911b);
   square(cargoX, cargoY, cargoSize);
 }
@@ -21,4 +28,3 @@ int getCargoX() {
 int getCargoY() {
   return cargoY;
 }
-

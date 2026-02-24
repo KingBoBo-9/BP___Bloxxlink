@@ -5,7 +5,8 @@ int cellSize = 30;
 int gridTotalWidth = gridColumns * cellSize;
 int gridTotalHeight = gridRows * cellSize;
 
-int gridX, gridY;
+int gridX, gridY, gridXStart, gridYStart;
+
 
 //Draw the game Map
 void drawMap(int mapX, int mapY) {
@@ -57,4 +58,12 @@ int getGridY() {
 
 int getcellSize() {
   return cellSize;
+}
+
+int getGridColumns() {
+  return gridColumns;
+}
+
+int getGridRows() {
+  return gridRows;
 }
