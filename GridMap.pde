@@ -56,7 +56,7 @@ int getGridY() {
   return gridY;
 }
 
-int getcellSize() {
+int getCellSize() {
   return cellSize;
 }
 

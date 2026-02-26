@@ -28,26 +28,26 @@ void keyPressed() {
 
   if (key == CODED) {
     if (keyCode == UP) {
-      nextPlayerY -= getcellSize();
+      nextPlayerY -= getCellSize();
       if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
         cargoY += (nextPlayerY - getPlayerY());
       }
       movePlayer("UP");
     } else if (keyCode == DOWN) {
-      nextPlayerY += getcellSize();
+      nextPlayerY += getCellSize();
       if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
         cargoY += (nextPlayerY - getPlayerY());
       }
       movePlayer("DOWN");
     } else if (keyCode == LEFT) {
-      nextPlayerX -= getcellSize();
+      nextPlayerX -= getCellSize();
       if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
         cargoX += (nextPlayerX - getPlayerX());
       }
       movePlayer("LEFT");
     } else if (keyCode == RIGHT) {
       //calculate where player wants to go
-      nextPlayerX += getcellSize();
+      nextPlayerX += getCellSize();
       //check if cargo is at this position
       if (nextPlayerX == getCargoX() && nextPlayerY == getCargoY()) {
         //move cargo

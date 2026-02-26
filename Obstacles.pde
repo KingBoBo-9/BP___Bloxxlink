@@ -4,16 +4,16 @@ void initObstacle() {
   int ObstacleCol = int(random(getGridColumns()));
   int ObstacleRow = int(random(getGridRows()));
 
-  obstacleX = calculateGridX() + ObstacleCol * getcellSize();
-  obstacleY = calculateGridY() + ObstacleRow * getcellSize();
+  obstacleX = calculateGridX() + ObstacleCol * getCellSize();
+  obstacleY = calculateGridY() + ObstacleRow * getCellSize();
 }
 
 void drawObstacle() {
 
   fill(#86f1fc);
   rectMode(CORNERS);
-  rect(obstacleX - getcellSize(), obstacleY - getcellSize(), obstacleX + 2 * getcellSize(), obstacleY + 2 * getcellSize());
+  rect(obstacleX - getCellSize(), obstacleY - getCellSize(), obstacleX + 2 * getCellSize(), obstacleY + 2 * getCellSize());
   rectMode(CORNER);
   fill(#25c9db);
-  square(obstacleX, obstacleY, getcellSize());
+  square(obstacleX, obstacleY, getCellSize());
 }

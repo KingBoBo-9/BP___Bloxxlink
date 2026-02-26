@@ -1,38 +1,38 @@
-int playerX, playerY;
-int playerSize = getcellSize();
+int playerX, playerY, playerCol, playerRow;
 
 //Sets player spawn point
 void initPlayer() {
-  playerX = width / 2 - playerSize;
-  playerY = height / 2 - playerSize;
+  playerX = calculateGridX() + playerCol * getCellSize();
+  playerY = calculateGridY() + playerRow * getCellSize();
 }
 
+//Hier bezig met player pixels omzetten naar col en Row
 
 void drawPlayer() {
   fill(#FCB824);
   ellipseMode(CORNER);
-  circle(playerX, playerY, playerSize);
+  circle(playerX, playerY, getCellSize());
 }
 
 void movePlayer(String direction) {
   if (direction == "UP") {
-    if (playerY >= getGridY() + playerSize) {
-      playerY -= playerSize;
+    if (playerY >= getGridY() + getCellSize()) {
+      playerY -= getCellSize();
       updateScore();
     }
   } else if (direction == "DOWN") {
-    if (playerY < getGridHeight() + getGridY() - playerSize) {
-      playerY += playerSize;
+    if (playerY < getGridHeight() + getGridY() - getCellSize()) {
+      playerY += getCellSize();
       updateScore();
     }
   } else if (direction == "LEFT") {
-    if (playerX >= getGridX() + playerSize) {
-      playerX -= playerSize;
+    if (playerX >= getGridX() + getCellSize()) {
+      playerX -= getCellSize();
       updateScore();
     }
   } else if (direction == "RIGHT") {
-    if (playerX < getGridWidth() + gridX - playerSize ) {
-      playerX += playerSize;
+    if (playerX < getGridWidth() + gridX - getCellSize() ) {
+      playerX += getCellSize();
       updateScore();
     }
   }
