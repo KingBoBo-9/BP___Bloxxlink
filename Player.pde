@@ -17,28 +17,34 @@ void drawPlayer() {
 }
 
 void movePlayer(String direction) {
-  if (direction == "UP") {
+  switch(direction) {
+  case "UP":
     if (playerRow > 0) {
       playerRow--;
       updateScore();
     }
-  } else if (direction == "DOWN") {
+    break;
+  case "DOWN":
     if (playerRow < gridRows - 1) {
       playerRow++;
       updateScore();
     }
-  } else if (direction == "LEFT") {
+    break;
+  case "LEFT":
     if (playerCol > 0) {
       playerCol--;
       updateScore();
     }
-  } else if (direction == "RIGHT") {
+    break;
+  case "RIGHT":
     if (playerCol < gridColumns - 1) {
       playerCol++;
       updateScore();
     }
+    break;
   }
 }
+
 
 int getPlayerX() {
   return playerX;
