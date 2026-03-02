@@ -1,16 +1,17 @@
+int cargoCol, cargoRow;
 int cargoX, cargoY;
 
 
 void initCargo() {
-  int cargoCol = int(random(getGridColumns()));
-  int cargoRow = int(random(getGridRows()));
-
-  cargoX = calculateGridX() + cargoCol * getCellSize();
-  cargoY = calculateGridY() + cargoRow * getCellSize();
+  cargoCol = int(random(getGridColumns()));
+  cargoRow = int(random(getGridRows()));
 }
 
 
 void drawCargo() {
+  cargoX = calculateGridX() + cargoCol * getCellSize();
+  cargoY = calculateGridY() + cargoRow * getCellSize();
+
   rectMode(CORNER);
   fill(#17911b);
   square(cargoX, cargoY, getCellSize());

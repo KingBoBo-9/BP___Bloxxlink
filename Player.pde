@@ -1,13 +1,5 @@
 int playerX, playerY, playerCol, playerRow;
 
-//Sets player spawn point
-void initPlayer() {
-  playerX = calculateGridX() + playerCol * getCellSize();
-  playerY = calculateGridY() + playerRow * getCellSize();
-}
-
-
-
 void drawPlayer() {
   playerX = calculateGridX() + playerCol * getCellSize();
   playerY = calculateGridY() + playerRow * getCellSize();

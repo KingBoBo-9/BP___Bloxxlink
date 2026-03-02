@@ -5,12 +5,9 @@ void settings() {
 
 void setup() {
   drawMap(width / 2, height / 2);
-  initPlayer();
   initCargo();
   initObstacle();
 }
-
-
 
 void draw() {
   background(100);
@@ -22,6 +19,8 @@ void draw() {
 }
 
 void keyPressed() {
+
+
   if (key == CODED) {
     switch(keyCode) {
     case UP:
