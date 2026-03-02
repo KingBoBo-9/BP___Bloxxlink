@@ -6,7 +6,7 @@ void initPlayer() {
   playerY = calculateGridY() + playerRow * getCellSize();
 }
 
-//Hier bezig met player pixels omzetten naar col en Row
+
 
 void drawPlayer() {
   playerX = calculateGridX() + playerCol * getCellSize();
