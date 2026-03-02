@@ -9,6 +9,8 @@ void initPlayer() {
 //Hier bezig met player pixels omzetten naar col en Row
 
 void drawPlayer() {
+  playerX = calculateGridX() + playerCol * getCellSize();
+  playerY = calculateGridY() + playerRow * getCellSize();
   fill(#FCB824);
   ellipseMode(CORNER);
   circle(playerX, playerY, getCellSize());
@@ -16,23 +18,23 @@ void drawPlayer() {
 
 void movePlayer(String direction) {
   if (direction == "UP") {
-    if (playerY >= getGridY() + getCellSize()) {
-      playerY -= getCellSize();
+    if (playerRow > 0) {
+      playerRow--;
       updateScore();
     }
   } else if (direction == "DOWN") {
-    if (playerY < getGridHeight() + getGridY() - getCellSize()) {
-      playerY += getCellSize();
+    if (playerRow < gridRows - 1) {
+      playerRow++;
       updateScore();
     }
   } else if (direction == "LEFT") {
-    if (playerX >= getGridX() + getCellSize()) {
-      playerX -= getCellSize();
+    if (playerCol > 0) {
+      playerCol--;
       updateScore();
     }
   } else if (direction == "RIGHT") {
-    if (playerX < getGridWidth() + gridX - getCellSize() ) {
-      playerX += getCellSize();
+    if (playerCol < gridColumns - 1) {
+      playerCol++;
       updateScore();
     }
   }
