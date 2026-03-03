@@ -1,7 +1,6 @@
 int cargoCol, cargoRow;
 int cargoX, cargoY;
 boolean pullCargoMode = false;
-boolean checkForCargo = false;
 
 void initCargo() {
   cargoCol = int(random(getGridColumns()));
@@ -19,18 +18,22 @@ void drawCargo() {
 }
 
 
-int getCargoX() {
-  return cargoX;
-}
-
-int getCargoY() {
-  return cargoY;
-}
-
 boolean togglePullCargoMode() {
-  return pullCargoMode = !pullCargoMode;
+  pullCargoMode = !pullCargoMode;
+  return pullCargoMode;
 }
 
-// boolean checkForCargo() {
-//   return;
-//}
+boolean checkForCargo() {
+  //checks if cargo is above, under, left of, or right of player.
+  if (cargoCol == playerCol && cargoRow == playerRow -1) {
+    return true;
+  } else  if (cargoCol == playerCol && cargoRow == playerRow + 1) {
+    return true;
+  } else if (cargoRow == playerRow && cargoCol == playerCol - 1) {
+    return true;
+  } else if (cargoRow == playerRow && cargoCol == playerCol + 1) {
+    return true;
+  } else {
+    return false;
+  }
+}

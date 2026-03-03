@@ -6,7 +6,7 @@ void settings() {
 void setup() {
   drawMap(width / 2, height / 2);
   initCargo();
-  initObstacle();
+  // initObstacle();
 }
 
 void draw() {
@@ -15,19 +15,10 @@ void draw() {
   drawScore();
   drawCargo();
   drawPlayer();
-  // drawObstacle();
-
-  //cargo above player
-  if (cargoCol == playerCol && cargoRow == playerRow -1) {
-    print("contact");
-  } else {
-    println("no-contact");
-  }
 }
 
+
 void keyPressed() {
-
-
   if (key == CODED) {
     switch(keyCode) {
     case UP:
@@ -46,7 +37,8 @@ void keyPressed() {
   }
 
   if (key == RETURN || key == ENTER) {
-    togglePullCargoMode();
-    print(pullCargoMode);
+    if (checkForCargo() == true) {
+      togglePullCargoMode();
+    }
   }
 }

@@ -11,8 +11,14 @@ void drawPlayer() {
 }
 
 void movePlayer(String direction) {
+
   playerTargetCol = playerCol;
   playerTargetRow = playerRow;
+
+  if (pullCargoMode == true) {
+    cargoCol = playerTargetCol;
+    cargoRow = playerTargetRow;
+  }
 
   switch(direction) {
   case "UP":
