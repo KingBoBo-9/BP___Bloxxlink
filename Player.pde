@@ -78,7 +78,7 @@ void movePlayer(String direction) {
 
       int cargoTargetCol = cargoCol - 1;
 
-      if (cargoTargetCol > gridColumns - 1) {
+      if (cargoTargetCol < 0) {
         break;
       }
 
@@ -95,7 +95,7 @@ void movePlayer(String direction) {
   case "RIGHT":
     playerTargetCol = playerCol + 1;
     playerTargetRow = playerRow;
-    if (playerTargetCol > gridColumns) {
+    if (playerTargetCol > gridColumns - 1) {
       break;
     }
     if (playerTargetCol == cargoCol && playerTargetRow == cargoRow) {
