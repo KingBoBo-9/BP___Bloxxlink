@@ -1,6 +1,7 @@
 int playerX, playerY, playerCol, playerRow;
 int playerTargetCol, playerTargetRow;
 
+
 void drawPlayer() {
   playerX = calculateGridX() + playerCol * getCellSize();
   playerY = calculateGridY() + playerRow * getCellSize();

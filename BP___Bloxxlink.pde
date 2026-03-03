@@ -16,6 +16,13 @@ void draw() {
   drawCargo();
   drawPlayer();
   // drawObstacle();
+
+  //cargo above player
+  if (cargoCol == playerCol && cargoRow == playerRow -1) {
+    print("contact");
+  } else {
+    println("no-contact");
+  }
 }
 
 void keyPressed() {
@@ -36,5 +43,10 @@ void keyPressed() {
       movePlayer("RIGHT");
       break;
     }
+  }
+
+  if (key == RETURN || key == ENTER) {
+    togglePullCargoMode();
+    print(pullCargoMode);
   }
 }

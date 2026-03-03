@@ -1,6 +1,7 @@
 int cargoCol, cargoRow;
 int cargoX, cargoY;
-
+boolean pullCargoMode = false;
+boolean checkForCargo = false;
 
 void initCargo() {
   cargoCol = int(random(getGridColumns()));
@@ -25,3 +26,11 @@ int getCargoX() {
 int getCargoY() {
   return cargoY;
 }
+
+boolean togglePullCargoMode() {
+  return pullCargoMode = !pullCargoMode;
+}
+
+// boolean checkForCargo() {
+//   return;
+//}
