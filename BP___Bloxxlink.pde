@@ -15,7 +15,7 @@ void draw() {
   drawScore();
   drawCargo();
   drawPlayer();
-  drawObstacle();
+  // drawObstacle();
 }
 
 void keyPressed() {

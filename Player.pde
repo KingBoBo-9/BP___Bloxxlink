@@ -1,4 +1,5 @@
 int playerX, playerY, playerCol, playerRow;
+int playerTargetCol, playerTargetRow;
 
 void drawPlayer() {
   playerX = calculateGridX() + playerCol * getCellSize();
@@ -9,30 +10,107 @@ void drawPlayer() {
 }
 
 void movePlayer(String direction) {
+  playerTargetCol = playerCol;
+  playerTargetRow = playerRow;
+
   switch(direction) {
   case "UP":
-    if (playerRow > 0) {
-      playerRow--;
-      updateScore();
+    playerTargetCol = playerCol;
+    playerTargetRow = playerRow - 1;
+    //Check if player stays within grid
+    if (playerTargetRow < 0) {
+      break;
     }
+    //Check if there is cargo at player's target position
+    if (playerTargetCol == cargoCol && playerTargetRow == cargoRow) {
+      //Check where cargo should go
+      int cargoTargetRow = cargoRow - 1;
+      //Check if cargo stays within grid
+      if (cargoTargetRow < 0) {
+        break;
+      }
+
+      cargoRow = cargoTargetRow;
+      playerRow = playerTargetRow;
+    } else {
+      playerRow = playerTargetRow;
+    }
+
+    updateScore();
     break;
+
   case "DOWN":
-    if (playerRow < gridRows - 1) {
-      playerRow++;
-      updateScore();
+    playerTargetCol = playerCol;
+    playerTargetRow = playerRow + 1;
+    //Check if player stays within grid
+    if (playerTargetRow > gridRows - 1) {
+      break;
     }
+    //Check if there is cargo at player's target position
+    if (playerTargetCol == cargoCol && playerTargetRow == cargoRow) {
+      //Check where cargo should go
+      int cargoTargetRow = cargoRow + 1;
+      //Check if cargo stays within grid
+      if (cargoTargetRow > gridRows - 1) {
+        break;
+      }
+
+      cargoRow = cargoTargetRow;
+      playerRow = playerTargetRow;
+    } else {
+      playerRow = playerTargetRow;
+    }
+
+    updateScore();
     break;
+
+
+
   case "LEFT":
-    if (playerCol > 0) {
-      playerCol--;
-      updateScore();
+    playerTargetCol = playerCol - 1;
+    playerTargetRow = playerRow;
+
+    if (playerTargetCol < 0) {
+      break;
     }
+
+    if (playerTargetCol == cargoCol && playerTargetRow == cargoRow) {
+
+      int cargoTargetCol = cargoCol - 1;
+
+      if (cargoTargetCol > gridColumns - 1) {
+        break;
+      }
+
+      cargoCol = cargoTargetCol;
+      playerCol = playerTargetCol;
+    } else {
+      playerCol = playerTargetCol;
+    }
+
+    updateScore();
     break;
+
+
   case "RIGHT":
-    if (playerCol < gridColumns - 1) {
-      playerCol++;
-      updateScore();
+    playerTargetCol = playerCol + 1;
+    playerTargetRow = playerRow;
+    if (playerTargetCol > gridColumns) {
+      break;
     }
+    if (playerTargetCol == cargoCol && playerTargetRow == cargoRow) {
+      int cargoTargetCol = cargoCol + 1;
+      if (cargoTargetCol > gridColumns - 1) {
+        break;
+      }
+
+      cargoCol = cargoTargetCol;
+      playerCol = playerTargetCol;
+    } else {
+      playerCol = playerTargetCol;
+    }
+
+    updateScore();
     break;
   }
 }
