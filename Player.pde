@@ -14,6 +14,8 @@ void movePlayer(String direction) {
   //change direction to Col/Row
   int directionCol = 0;
   int directionRow = 0;
+  int oldPlayerCol = playerCol;
+  int oldPlayerRow = playerRow;
 
   switch (direction) {
   case "UP":
@@ -39,14 +41,8 @@ void movePlayer(String direction) {
     return;
   }
 
-  //check if cargo
-  int cargoIndex = -1;
-  for (int i = 0; i < cargoCount; i++) {
-    if (playerTargetCol == cargoCol[i] && playerTargetRow == cargoRow[i]) {
-      cargoIndex = i;
-      break;
-    }
-  }
+  //check if cargo on player target
+  int cargoIndex = getCargoIndexAt(playerTargetCol, playerTargetRow);
 
   //if cargo
   //calculate cargo target
@@ -71,7 +67,21 @@ void movePlayer(String direction) {
     cargoRow[cargoIndex] = cargoTargetRow;
   }
 
+
   //move player
   playerCol = playerTargetCol;
   playerRow = playerTargetRow;
+
+  //check pullCargoMode
+  if (pullCargoMode) {
+    int pullCol = oldPlayerCol - directionCol;
+    int pullRow = oldPlayerRow - directionRow;
+
+    int cargoPullIndex = getCargoIndexAt(pullCol, pullRow);
+
+    if (cargoPullIndex != -1) {
+      cargoCol[cargoPullIndex] = oldPlayerCol;
+      cargoRow[cargoPullIndex] = oldPlayerRow;
+    }
+  }
 }

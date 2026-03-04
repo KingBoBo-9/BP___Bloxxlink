@@ -37,8 +37,11 @@ void keyPressed() {
   }
 
   if (key == RETURN || key == ENTER) {
+
     if (checkForCargo() == true) {
       togglePullCargoMode();
     }
+    println("checkForCargo = " + checkForCargo());
+    println("togglePullCargoMode = " + pullCargoMode);
   }
 }

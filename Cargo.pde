@@ -52,3 +52,12 @@ boolean checkForCargo() {
   }
   return false;
 }
+
+int getCargoIndexAt(int col, int row) {
+  for (int i = 0; i < cargoCount; i++) {
+    if (cargoCol[i] == col && cargoRow[i] == row) {
+      return i;
+    }
+  }
+  return -1;
+}
