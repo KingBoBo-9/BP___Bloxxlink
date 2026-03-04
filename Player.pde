@@ -35,10 +35,36 @@ void movePlayer(String direction) {
   playerTargetRow = playerRow + directionRow;
 
   //check grid boundaries
+  if (playerTargetCol < 0 || playerTargetCol > gridColumns - 1 || playerTargetRow < 0 || playerTargetRow > gridRows - 1) {
+    return;
+  }
+
   //check if cargo
+  int cargoIndex = -1;
+  for (int i = 0; i < cargoCount; i++) {
+    if (playerTargetCol == cargoCol[i] && playerTargetRow == cargoRow[i]) {
+      cargoIndex = i;
+      break;
+    }
+  }
+
   //if cargo
   //calculate cargo target
-  //check if cargo stays in grid
-  //move cargo
+  if (cargoIndex != -1) {
+    int cargoTargetCol = cargoCol[cargoIndex] + directionCol;
+    int cargoTargetRow = cargoRow[cargoIndex] + directionRow;
+
+    //check if cargo stays in grid
+    if (cargoTargetCol < 0 || cargoTargetCol > gridColumns - 1 || cargoTargetRow < 0 || cargoTargetRow > gridRows - 1) {
+      return;
+    }
+
+    //move cargo
+    cargoCol[cargoIndex] = cargoTargetCol;
+    cargoRow[cargoIndex] = cargoTargetRow;
+  }
+
   //move player
+  playerCol = playerTargetCol;
+  playerRow = playerTargetRow;
 }
