@@ -54,6 +54,13 @@ void movePlayer(String direction) {
     int cargoTargetCol = cargoCol[cargoIndex] + directionCol;
     int cargoTargetRow = cargoRow[cargoIndex] + directionRow;
 
+    //check if there's cargo at cargoTarget
+    for (int i = 0; i < cargoCount; i++) {
+      if (cargoTargetCol == cargoCol[i] && cargoTargetRow == cargoRow[i]) {
+        return;
+      }
+    }
+
     //check if cargo stays in grid
     if (cargoTargetCol < 0 || cargoTargetCol > gridColumns - 1 || cargoTargetRow < 0 || cargoTargetRow > gridRows - 1) {
       return;
