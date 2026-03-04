@@ -17,3 +17,4 @@ void drawObstacle() {
   fill(#25c9db);
   square(obstacleX, obstacleY, getCellSize());
 }
+
