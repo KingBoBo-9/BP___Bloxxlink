@@ -1,20 +1,31 @@
-int cargoCol, cargoRow;
 int cargoX, cargoY;
 boolean pullCargoMode = false;
 
+int cargoCount = 3;
+int[] cargoCol = new int[cargoCount];
+int[] cargoRow = new int[cargoCount];
+
+
+
+
+
 void initCargo() {
-  cargoCol = int(random(getGridColumns()));
-  cargoRow = int(random(getGridRows()));
+  for (int i = 0; i < cargoCount; i++) {
+    cargoCol[i] = int(random(getGridColumns()));
+    cargoRow[i] = int(random(getGridRows()));
+  }
 }
 
 
 void drawCargo() {
-  cargoX = calculateGridX() + cargoCol * getCellSize();
-  cargoY = calculateGridY() + cargoRow * getCellSize();
+  for (int i = 0; i < cargoCount; i++) {
+    cargoX = calculateGridX() + cargoCol[i] * getCellSize();
+    cargoY = calculateGridY() + cargoRow[i] * getCellSize();
 
-  rectMode(CORNER);
-  fill(#17911b);
-  square(cargoX, cargoY, getCellSize());
+    rectMode(CORNER);
+    fill(#17911b);
+    square(cargoX, cargoY, getCellSize());
+  }
 }
 
 
@@ -25,15 +36,19 @@ boolean togglePullCargoMode() {
 
 boolean checkForCargo() {
   //checks if cargo is above, under, left of, or right of player.
-  if (cargoCol == playerCol && cargoRow == playerRow -1) {
-    return true;
-  } else  if (cargoCol == playerCol && cargoRow == playerRow + 1) {
-    return true;
-  } else if (cargoRow == playerRow && cargoCol == playerCol - 1) {
-    return true;
-  } else if (cargoRow == playerRow && cargoCol == playerCol + 1) {
-    return true;
-  } else {
-    return false;
+  for (int i = 0; i < cargoCount; i++) {
+    if (cargoCol[i] == playerCol && cargoRow[i] == playerRow -1) {
+      return true;
+    }
+    if (cargoCol[i] == playerCol && cargoRow[i] == playerRow + 1) {
+      return true;
+    }
+    if (cargoRow[i] == playerRow && cargoCol[i] == playerCol - 1) {
+      return true;
+    }
+    if (cargoRow[i] == playerRow && cargoCol[i] == playerCol + 1) {
+      return true;
+    }
   }
+  return false;
 }
