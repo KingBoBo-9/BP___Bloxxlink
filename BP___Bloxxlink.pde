@@ -19,22 +19,7 @@ void draw() {
 
 
 void keyPressed() {
-  if (key == CODED) {
-    switch(keyCode) {
-    case UP:
-      movePlayer("UP");
-      break;
-    case DOWN:
-      movePlayer("DOWN");
-      break;
-    case LEFT:
-      movePlayer("LEFT");
-      break;
-    case RIGHT:
-      movePlayer("RIGHT");
-      break;
-    }
-  }
+  movePlayer();
 
   if (key == RETURN || key == ENTER) {
 
@@ -45,3 +30,4 @@ void keyPressed() {
     println("togglePullCargoMode = " + pullCargoMode);
   }
 }
+

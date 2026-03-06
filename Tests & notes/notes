@@ -14,6 +14,8 @@ N.B.
 - moet minimaal 1 array in zitten 
 - beoordeling SEB in brightspace 
 - overlap spawn van cargo / obstacle 
+- punt negen pull cargo note afmaken
+
 
 REFACTOR:
 - ALLES
@@ -21,6 +23,16 @@ REFACTOR:
 
 De code zelf moet zoveel mogelijk duidelijk maken wat het doet. 
 Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet duidelijk genoeg geschreven.
+
+
+
+
+
+
+
+
+
+
 
 movePlayer()
 1. richting omzetten naar directionCol / Row ✅
@@ -33,7 +45,6 @@ movePlayer()
         6.  cargo grid grenzen checken ✅
         7. cargo verplaatsen ✅
 8. speler verplaatsen ✅
-
 9. check if pullCargoMode = true
         if true:
             
