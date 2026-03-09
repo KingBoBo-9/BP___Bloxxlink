@@ -1,5 +1,5 @@
-int gridColumns = 14;
-int gridRows = 8;
+int gridColumns = 20;
+int gridRows = 16;
 int cellSize = 30;
 
 int gridTotalWidth = gridColumns * cellSize;

@@ -22,7 +22,7 @@ REFACTOR:
 - ALLES
 
 
-De code zelf moet zoveel mogelijk duidelijk maken wat het doet. 
+De code maakt zelf zo veel mogelijk duidelijk wat het doet. 
 Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet duidelijk genoeg geschreven.
 
 

@@ -2,8 +2,6 @@ int cargoX, cargoY;
 boolean pullCargoMode = false;
 
 
-
-
 int cargoCount = 3;
 int[] cargoCol = new int[cargoCount];
 int[] cargoRow = new int[cargoCount];

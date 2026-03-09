@@ -1,12 +1,12 @@
 void settings() {
-  size(500, 400);
+  size(800, 700);
   // fullScreen();
 }
 
 void setup() {
   drawMap(width / 2, height / 2);
   initCargo();
-  // initObstacle();
+  initObstacle();
 }
 
 void draw() {
@@ -15,6 +15,7 @@ void draw() {
   drawScore();
   drawCargo();
   drawPlayer();
+  drawObstacle();
 }
 
 
@@ -30,5 +31,5 @@ void keyPressed() {
     println("togglePullCargoMode = " + pullCargoMode);
   }
 
-  checkIfGameIsWon();
+  // println(checkIfGameIsWon());
 }

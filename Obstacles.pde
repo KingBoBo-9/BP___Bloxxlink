@@ -1,20 +1,22 @@
-int obstacleX, obstacleY, fieldX, fieldY;
+int numberOfObstacles = 3;
+
+int[] obstacleCol = new int[numberOfObstacles];
+int[] obstacleRow = new int[numberOfObstacles];
 
 void initObstacle() {
-  int ObstacleCol = int(random(getGridColumns()));
-  int ObstacleRow = int(random(getGridRows()));
-
-  obstacleX = calculateGridX() + ObstacleCol * getCellSize();
-  obstacleY = calculateGridY() + ObstacleRow * getCellSize();
+  for (int i = 0; i < numberOfObstacles; i++) {
+    obstacleCol[i] = int(random(getGridColumns()));
+    obstacleRow[i] = int(random(getGridRows()));
+  }
 }
 
 void drawObstacle() {
+  for (int i = 0; i < numberOfObstacles; i++) {
+    int obstacleX = calculateGridX() + obstacleCol[i] * getCellSize();
+    int obstacleY = calculateGridY() + obstacleRow[i] * getCellSize();
 
-  fill(#86f1fc);
-  rectMode(CORNERS);
-  rect(obstacleX - getCellSize(), obstacleY - getCellSize(), obstacleX + 2 * getCellSize(), obstacleY + 2 * getCellSize());
-  rectMode(CORNER);
-  fill(#25c9db);
-  square(obstacleX, obstacleY, getCellSize());
+    rectMode(CORNER);
+    fill(#62ade3);
+    square(obstacleX, obstacleY, getCellSize());
+  }
 }
-
