@@ -112,3 +112,14 @@ boolean isCargoOnSameCol() {
   }
   return true;
 }
+
+//Check if game win condition is met:
+boolean checkIfGameIsWon() {
+  sortCargoRowsAndCols();
+
+  if ((isCargoConnectedRow() == true && isCargoOnSameRow() == true) || (isCargoConnectedCol() == true && isCargoOnSameCol() == true)) {
+    return true;
+  } else {
+    return false;
+  }
+}

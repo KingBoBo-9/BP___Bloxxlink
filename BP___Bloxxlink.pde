@@ -30,20 +30,5 @@ void keyPressed() {
     println("togglePullCargoMode = " + pullCargoMode);
   }
 
-  // if (key == TAB) {
-  //   println("COL COPY");
-  //   printArray(cargoColCopy);
-  //   println("ROW COPY");
-  //   printArray(cargoRowCopy);
-  // }
-
-  sortCargoRowsAndCols();
-
-  if (isCargoConnectedRow() == true && isCargoOnSameRow() == true) {
-    println("Big horizontal true");
-  }
-
-  if (isCargoConnectedCol() == true && isCargoOnSameCol() == true) {
-    println("Big vertical true");
-  }
+  checkIfGameIsWon();
 }
