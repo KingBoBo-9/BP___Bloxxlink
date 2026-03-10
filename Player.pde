@@ -1,5 +1,6 @@
 int playerCol, playerRow;
 int playerTargetCol, playerTargetRow;
+int cargoTargetCol, cargoTargetRow;
 
 
 void drawPlayer() {
@@ -43,14 +44,18 @@ void movePlayer() {
       return;
     }
 
+    //check if player moves into obstacle field
+    if (isPlayerInElectricField()) {
+      return;
+    }
     //check if cargo on player target
     int cargoIndex = getCargoIndexAt(playerTargetCol, playerTargetRow);
 
     //if cargo
     //calculate cargo target
     if (cargoIndex != -1) {
-      int cargoTargetCol = cargoCol[cargoIndex] + directionCol;
-      int cargoTargetRow = cargoRow[cargoIndex] + directionRow;
+      cargoTargetCol = cargoCol[cargoIndex] + directionCol;
+      cargoTargetRow = cargoRow[cargoIndex] + directionRow;
 
       //check if there's cargo at cargoTarget
       for (int i = 0; i < cargoCount; i++) {
@@ -61,6 +66,10 @@ void movePlayer() {
 
       //check if cargo stays in grid
       if (cargoTargetCol < 0 || cargoTargetCol > gridColumns - 1 || cargoTargetRow < 0 || cargoTargetRow > gridRows - 1) {
+        return;
+      }
+
+      if (isCargoInElectricField()) {
         return;
       }
 
