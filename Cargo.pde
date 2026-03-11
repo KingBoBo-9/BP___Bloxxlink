@@ -13,8 +13,14 @@ void initCargo() {
   for (int i = 0; i < cargoCount; i++) {
     cargoCol[i] = int(random(getGridColumns()));
     cargoRow[i] = int(random(getGridRows()));
+
+    while (getCargoIndexAt(cargoCol[i], cargoRow[i]) != -1) {
+      cargoCol[i] = int(random(getGridColumns()));
+      cargoRow[i] = int(random(getGridRows()));
+    }
   }
 }
+
 
 
 void drawCargo() {
@@ -121,5 +127,3 @@ boolean checkIfGameIsWon() {
     return false;
   }
 }
-
-
