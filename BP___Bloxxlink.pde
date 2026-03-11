@@ -33,5 +33,5 @@ void keyPressed() {
 
 
 
-  // println(checkIfGameIsWon());
+  println(checkIfGameIsWon());
 }

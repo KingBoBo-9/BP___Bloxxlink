@@ -16,6 +16,12 @@ N.B.
 - overlap spawn van cargo / obstacle 
 - punt negen pull cargo note afmaken
 - setup en draw zo klein mogelijk houden
+-test modulen aanmaken Test_Robot of Test 
+    - header van test heeft geen parameters 
+    - testen voor methods met return values 
+    - test modules komen niet terug in architectuur tekening
+- Op te leveren: het opleverdocument, 12.1 in reader reflectie op code kwaliteit 
+- code kwaliteit is beangrijk!!
 
 
 REFACTOR:

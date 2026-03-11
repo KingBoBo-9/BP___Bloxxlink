@@ -1,8 +1,5 @@
 int numberOfObstacles = 3;
 int obstacleX, obstacleY;
-
-
-
 int[] obstacleCol = new int[numberOfObstacles];
 int[] obstacleRow = new int[numberOfObstacles];
 
@@ -30,40 +27,38 @@ void drawObstacle() {
   }
 }
 
-
-
-boolean isPlayerInElectricField() {
+boolean isInElectricField(int col, int row) {
   for (int i = 0; i < numberOfObstacles; i++) {
     //top left
-    if (playerTargetCol == obstacleCol[i] -1 && playerTargetRow == obstacleRow[i] -1) {
+    if (col == obstacleCol[i] -1 && row == obstacleRow[i] -1) {
       return true;
     }
     //top
-    if (playerTargetRow == obstacleRow[i] -1 && playerTargetCol == obstacleCol[i]) {
+    if (row == obstacleRow[i] -1 && col == obstacleCol[i]) {
       return true;
     }
     //top right
-    if (playerTargetRow == obstacleRow[i] -1 && playerTargetCol == obstacleCol[i] + 1) {
+    if (row == obstacleRow[i] -1 && col == obstacleCol[i] + 1) {
       return true;
     }
     //left
-    if (playerTargetCol == obstacleCol[i] -1 && playerTargetRow == obstacleRow[i]) {
+    if (col == obstacleCol[i] -1 && row == obstacleRow[i]) {
       return true;
     }
     //right
-    if (playerTargetCol == obstacleCol[i] +1 && playerTargetRow == obstacleRow[i]) {
+    if (col == obstacleCol[i] +1 && row == obstacleRow[i]) {
       return true;
     }
     //bottom left
-    if (playerTargetCol == obstacleCol[i] -1 && playerTargetRow == obstacleRow[i] +1) {
+    if (col == obstacleCol[i] -1 && row == obstacleRow[i] +1) {
       return true;
     }
     //bottom
-    if (playerTargetCol == obstacleCol[i] && playerTargetRow == obstacleRow[i] +1) {
+    if (col == obstacleCol[i] && row == obstacleRow[i] +1) {
       return true;
     }
     //bottom right
-    if (playerTargetCol == obstacleCol[i] +1 && playerTargetRow == obstacleRow[i] +1) {
+    if (col == obstacleCol[i] +1 && row == obstacleRow[i] +1) {
       return true;
     }
   }

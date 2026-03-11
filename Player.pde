@@ -45,7 +45,7 @@ void movePlayer() {
     }
 
     //check if player moves into obstacle field
-    if (isPlayerInElectricField()) {
+    if (isInElectricField(playerTargetCol, playerTargetRow)) {
       return;
     }
     //check if cargo on player target
@@ -69,7 +69,7 @@ void movePlayer() {
         return;
       }
 
-      if (isCargoInElectricField()) {
+      if (isInElectricField(cargoTargetCol, cargoTargetRow)) {
         return;
       }
 
