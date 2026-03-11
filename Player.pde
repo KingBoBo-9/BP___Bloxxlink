@@ -83,6 +83,9 @@ void movePlayer() {
     playerCol = playerTargetCol;
     playerRow = playerTargetRow;
 
+    updateScore();
+
+
     //check pullCargoMode
     if (pullCargoMode) {
       int pullCol = oldPlayerCol - directionCol;
