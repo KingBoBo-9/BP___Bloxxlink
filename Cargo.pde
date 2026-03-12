@@ -13,11 +13,6 @@ void initCargo() {
   for (int i = 0; i < cargoCount; i++) {
     cargoCol[i] = int(random(getGridColumns()));
     cargoRow[i] = int(random(getGridRows()));
-
-    while (getCargoIndexAt(cargoCol[i], cargoRow[i]) != -1) {
-      cargoCol[i] = int(random(getGridColumns()));
-      cargoRow[i] = int(random(getGridRows()));
-    }
   }
 }
 
@@ -89,7 +84,7 @@ boolean isCargoConnectedRow() {
 
 //Check if all cargo is on the same ROW
 boolean isCargoOnSameRow() {
-  for (int i = 1; i < cargoRow.length - 1; i++) {
+  for (int i = 1; i < cargoRow.length; i++) {
     if (cargoRow[i] != cargoRow[0]) {
       return false;
     }
@@ -109,7 +104,7 @@ boolean isCargoConnectedCol() {
 
 //Check if all cargo is on the same COLUMN
 boolean isCargoOnSameCol() {
-  for (int i = 1; i < cargoCol.length - 1; i++) {
+  for (int i = 1; i < cargoCol.length; i++) {
     if (cargoCol[i] != cargoCol[0]) {
       return false;
     }
@@ -127,3 +122,5 @@ boolean checkIfGameIsWon() {
     return false;
   }
 }
+
+

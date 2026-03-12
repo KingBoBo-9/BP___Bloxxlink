@@ -11,6 +11,7 @@ void setup() {
 
 void draw() {
   background(100);
+
   drawGrid();
   drawScore();
   drawCargo();

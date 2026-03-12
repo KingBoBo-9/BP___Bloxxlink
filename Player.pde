@@ -34,10 +34,9 @@ void movePlayer() {
       break;
     }
 
-
     //Calculate player target
-    playerTargetCol = playerCol + directionCol;
-    playerTargetRow = playerRow + directionRow;
+    playerTargetCol = calculatePlayerTargetCol(playerCol, directionCol);
+    playerTargetRow = calculatePlayerTargetRow(playerRow, directionRow);
 
     //check grid boundaries
     if (playerTargetCol < 0 || playerTargetCol > gridColumns - 1 || playerTargetRow < 0 || playerTargetRow > gridRows - 1) {
@@ -48,8 +47,9 @@ void movePlayer() {
     if (isInElectricField(playerTargetCol, playerTargetRow)) {
       return;
     }
+
     //check if cargo on player target
-    int cargoIndex = getCargoIndexAt(playerTargetCol, playerTargetRow);
+    int cargoIndex = isTileOccupied(playerTargetCol, playerTargetRow);
 
     //if cargo
     //calculate cargo target
@@ -91,7 +91,7 @@ void movePlayer() {
       int pullCol = oldPlayerCol - directionCol;
       int pullRow = oldPlayerRow - directionRow;
 
-      int cargoPullIndex = getCargoIndexAt(pullCol, pullRow);
+      int cargoPullIndex = isTileOccupied(pullCol, pullRow);
 
       if (cargoPullIndex != -1) {
         cargoCol[cargoPullIndex] = oldPlayerCol;
@@ -99,4 +99,12 @@ void movePlayer() {
       }
     }
   }
+}
+
+int calculatePlayerTargetCol(int playerCol, int directionCol) {
+  return playerCol + directionCol;
+}
+
+int calculatePlayerTargetRow(int playerRow, int directionRow) {
+  return playerRow + directionRow;
 }
