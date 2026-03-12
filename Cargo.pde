@@ -16,8 +16,6 @@ void initCargo() {
   }
 }
 
-
-
 void drawCargo() {
   for (int i = 0; i < cargoCount; i++) {
     cargoX = calculateGridX() + cargoCol[i] * getCellSize();
@@ -122,5 +120,4 @@ boolean checkIfGameIsWon() {
     return false;
   }
 }
-
 

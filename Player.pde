@@ -101,6 +101,9 @@ void movePlayer() {
   }
 }
 
+void moveCargo() {
+}
+
 int calculatePlayerTargetCol(int playerCol, int directionCol) {
   return playerCol + directionCol;
 }

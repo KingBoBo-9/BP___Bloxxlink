@@ -40,29 +40,12 @@ int isTileOccupied(int col, int row) {
   return -1;
 }
 
-//Getters
 int calculateGridX() {
   return gridX = width / 2 - gridTotalWidth / 2;
 }
 
 int calculateGridY() {
   return gridY = height / 2 - gridTotalHeight /2 ;
-}
-
-int getGridWidth() {
-  return gridTotalWidth;
-}
-
-int getGridHeight() {
-  return gridTotalHeight;
-}
-
-int getGridX() {
-  return gridX;
-}
-
-int getGridY() {
-  return gridY;
 }
 
 int getCellSize() {
