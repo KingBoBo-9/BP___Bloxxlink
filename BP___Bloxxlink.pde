@@ -5,8 +5,8 @@ void settings() {
 
 void setup() {
   drawMap(width / 2, height / 2);
-  initCargo();
-  initObstacle();
+  initCargoes();
+  initObstacles();
 }
 
 void draw() {
@@ -23,7 +23,6 @@ void keyPressed() {
   movePlayer();
 
   if (key == RETURN || key == ENTER) {
-
     if (checkForCargo() == true) {
       togglePullCargoMode();
     }
@@ -31,7 +30,5 @@ void keyPressed() {
     println("togglePullCargoMode = " + pullCargoMode);
   }
 
-
-
-  println(checkIfGameIsWon());
+  // println(checkIfGameIsWon());
 }

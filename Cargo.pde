@@ -9,7 +9,7 @@ int[] cargoColCopy = new int[cargoCount];
 int[] cargoRowCopy = new int[cargoCount];
 
 
-void initCargo() {
+void initCargoes() {
   for (int i = 0; i < cargoCount; i++) {
     cargoCol[i] = int(random(getGridColumns()));
     cargoRow[i] = int(random(getGridRows()));
@@ -51,16 +51,6 @@ boolean checkForCargo() {
   return false;
 }
 
-int getCargoIndexAt(int col, int row) {
-  for (int i = 0; i < cargoCount; i++) {
-    if (cargoCol[i] == col && cargoRow[i] == row) {
-      return i;
-    }
-  }
-  return -1;
-}
-
-
 void sortCargoRowsAndCols() {
   arrayCopy(cargoCol, cargoColCopy);
   cargoColCopy = sort(cargoColCopy);
@@ -68,7 +58,6 @@ void sortCargoRowsAndCols() {
   arrayCopy(cargoRow, cargoRowCopy);
   cargoRowCopy = sort(cargoRowCopy);
 }
-
 
 //Check if all cargo is HORIZONTALLY connected
 boolean isCargoConnectedRow() {
@@ -120,4 +109,3 @@ boolean checkIfGameIsWon() {
     return false;
   }
 }
-

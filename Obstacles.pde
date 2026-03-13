@@ -3,7 +3,7 @@ int obstacleX, obstacleY;
 int[] obstacleCol = new int[numberOfObstacles];
 int[] obstacleRow = new int[numberOfObstacles];
 
-void initObstacle() {
+void initObstacles() {
   for (int i = 0; i < numberOfObstacles; i++) {
     obstacleCol[i] = int(random(getGridColumns()));
     obstacleRow[i] = int(random(getGridRows()));
