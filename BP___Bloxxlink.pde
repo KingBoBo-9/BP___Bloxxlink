@@ -1,10 +1,8 @@
-void settings() {
+void setup() {
   size(800, 700);
   // fullScreen();
-}
-
-void setup() {
   drawMap(width / 2, height / 2);
+
   initCargoes();
   initObstacles();
 }
@@ -22,6 +20,8 @@ void draw() {
 void keyPressed() {
   movePlayer();
 
+
+  //Press enter when next to cargo to pull cargo
   if (key == RETURN || key == ENTER) {
     if (checkForCargo() == true) {
       togglePullCargoMode();

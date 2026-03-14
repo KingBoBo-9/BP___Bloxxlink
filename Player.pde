@@ -3,6 +3,7 @@ int playerTargetCol, playerTargetRow;
 int cargoTargetCol, cargoTargetRow;
 
 
+
 void drawPlayer() {
   int playerX = calculateGridX() + playerCol * getCellSize();
   int playerY = calculateGridY() + playerRow * getCellSize();
@@ -12,6 +13,7 @@ void drawPlayer() {
 }
 
 void movePlayer() {
+
   //change direction to Col/Row
   int directionCol = 0;
   int directionRow = 0;
@@ -35,20 +37,19 @@ void movePlayer() {
     }
 
     //Calculate player target
-    playerTargetCol = calculatePlayerTargetCol(playerCol, directionCol);
-    playerTargetRow = calculatePlayerTargetRow(playerRow, directionRow);
+    playerTargetCol = calculateTargetCol(playerCol, directionCol);
+    playerTargetRow = calculateTargetRow(playerRow, directionRow);
 
-    //check grid boundaries
-    if (playerTargetCol < 0 || playerTargetCol > gridColumns - 1 || playerTargetRow < 0 || playerTargetRow > gridRows - 1) {
+    //check if player target is within playfield  boundaries
+    if (checkIfWithinGridBoundaries(playerTargetCol, playerTargetRow) == false) {
       return;
     }
-
     //check if player moves into obstacle field
     if (isInElectricField(playerTargetCol, playerTargetRow)) {
       return;
     }
 
-    //check if cargo on player target
+    // check if cargo on player target
     int cargoIndex = isTileOccupied(playerTargetCol, playerTargetRow);
 
     //if cargo
@@ -80,10 +81,13 @@ void movePlayer() {
 
 
     //move player
-    playerCol = playerTargetCol;
-    playerRow = playerTargetRow;
+    if (canMove = true) {
+      playerCol = playerTargetCol;
+      playerRow = playerTargetRow;
 
-    updateScore();
+      updateScore();
+    }
+
 
 
     //check pullCargoMode
@@ -101,13 +105,20 @@ void movePlayer() {
   }
 }
 
-void moveCargo() {
+
+
+boolean checkIfWithinGridBoundaries(int col, int row) {
+  if (col < 0 || col > gridColumns -1 || row < 0 || row > gridRows -1) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
-int calculatePlayerTargetCol(int playerCol, int directionCol) {
-  return playerCol + directionCol;
+int calculateTargetCol(int col, int directionCol) {
+  return col + directionCol;
 }
 
-int calculatePlayerTargetRow(int playerRow, int directionRow) {
-  return playerRow + directionRow;
+int calculateTargetRow(int row, int directionRow) {
+  return row + directionRow;
 }

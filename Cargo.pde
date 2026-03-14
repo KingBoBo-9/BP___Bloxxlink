@@ -9,12 +9,14 @@ int[] cargoColCopy = new int[cargoCount];
 int[] cargoRowCopy = new int[cargoCount];
 
 
+//Set initial positions of all cargo
 void initCargoes() {
   for (int i = 0; i < cargoCount; i++) {
     cargoCol[i] = int(random(getGridColumns()));
     cargoRow[i] = int(random(getGridRows()));
   }
 }
+
 
 void drawCargo() {
   for (int i = 0; i < cargoCount; i++) {
@@ -25,11 +27,6 @@ void drawCargo() {
     fill(#17911b);
     square(cargoX, cargoY, getCellSize());
   }
-}
-
-boolean togglePullCargoMode() {
-  pullCargoMode = !pullCargoMode;
-  return pullCargoMode;
 }
 
 boolean checkForCargo() {
@@ -50,6 +47,12 @@ boolean checkForCargo() {
   }
   return false;
 }
+
+boolean togglePullCargoMode() {
+  pullCargoMode = !pullCargoMode;
+  return pullCargoMode;
+}
+
 
 void sortCargoRowsAndCols() {
   arrayCopy(cargoCol, cargoColCopy);
