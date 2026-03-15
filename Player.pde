@@ -3,6 +3,22 @@ int playerTargetCol, playerTargetRow;
 int cargoTargetCol, cargoTargetRow;
 
 
+//   int oldPlayerCol = playerCol;
+//   int oldPlayerRow = playerRow;
+
+//Main method for moving player
+void movePlayer() {
+  int directionCol = changeInputToDirectionCol();
+  int directionRow = changeInputToDirectionRow();
+
+  calculatePlayerTargetCol(directionCol);
+  calculatePlayerTargetRow(directionRow);
+
+  if (isTileWalkable()) {
+    movePlayerTo(playerTargetCol, playerTargetRow);
+    updateScore();
+  }
+}
 
 void drawPlayer() {
   int playerX = calculateGridX() + playerCol * getCellSize();
@@ -56,11 +72,7 @@ int calculatePlayerTargetRow(int directionRow) {
   return playerTargetRow;
 }
 
-// void movePlayer() {
-
-//   int oldPlayerCol = playerCol;
-//   int oldPlayerRow = playerRow;
-
+//Check if player's target is valid
 boolean isTileWalkable() {
   if (checkIfWithinGridBoundaries(playerTargetCol, playerTargetRow) == false) {
     return false;
@@ -71,47 +83,10 @@ boolean isTileWalkable() {
   }
 }
 
-
-//   // check if cargo on player target
-//   int cargoIndex = isTileOccupied(playerTargetCol, playerTargetRow);
-
-//   //if cargo
-//   //calculate cargo target
-//   if (cargoIndex != -1) {
-//     cargoTargetCol = cargoCol[cargoIndex] + directionCol;
-//     cargoTargetRow = cargoRow[cargoIndex] + directionRow;
-
-//     //check if there's cargo at cargoTarget
-//     for (int i = 0; i < cargoCount; i++) {
-//       if (cargoTargetCol == cargoCol[i] && cargoTargetRow == cargoRow[i]) {
-//         return;
-//       }
-//     }
-
-//     //check if cargo stays in grid
-//     if (cargoTargetCol < 0 || cargoTargetCol > gridColumns - 1 || cargoTargetRow < 0 || cargoTargetRow > gridRows - 1) {
-//       return;
-//     }
-
-//     if (isInElectricField(cargoTargetCol, cargoTargetRow)) {
-//       return;
-//     }
-
-//     //move cargo
-//     cargoCol[cargoIndex] = cargoTargetCol;
-//     cargoRow[cargoIndex] = cargoTargetRow;
-//   }
-
-
-//   //move player
-//   if (canMove = true) {
-//     playerCol = playerTargetCol;
-//     playerRow = playerTargetRow;
-
-//     updateScore();
-//   }
-
-
+void movePlayerTo(int playerTargetCol, int playerTargetRow) {
+  playerCol = playerTargetCol;
+  playerRow = playerTargetRow;
+}
 
 //   //check pullCargoMode
 //   if (pullCargoMode) {
@@ -126,11 +101,6 @@ boolean isTileWalkable() {
 //     }
 //   }
 // }
-
-
-void moveCargo() {
-}
-
 
 boolean checkIfWithinGridBoundaries(int col, int row) {
   if (col < 0 || col > gridColumns -1 || row < 0 || row > gridRows -1) {

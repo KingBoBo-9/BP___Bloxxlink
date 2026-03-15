@@ -18,9 +18,7 @@ void draw() {
 
 
 void keyPressed() {
-  // movePlayer();
-  changeInputToDirectionCol();
-  changeInputToDirectionRow();
+  movePlayer();
 
 
 

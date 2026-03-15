@@ -112,3 +112,44 @@ boolean checkIfGameIsWon() {
     return false;
   }
 }
+
+
+
+
+
+
+
+////////////////            ///////////////               //////////////
+int getCargoIndex() {
+  int cargoIndex = isTileOccupied(playerTargetCol, playerTargetRow);
+  return cargoIndex;
+}
+
+void handlePushCargo(int cargoIndex, int directionCol, int directionRow) {
+  if (cargoIndex != -1) {
+    cargoTargetCol = cargoCol[cargoIndex] + directionCol;
+    cargoTargetRow = cargoRow[cargoIndex] + directionRow;
+  }
+}
+
+boolean isTileValidForCargo() {
+  // check if there's cargo at cargoTarget
+  // Then check if cargo moves within grid
+  // Finally check if cargo moves into obstacle field
+
+  for (int i = 0; i < cargoCount; i++) {
+    if (cargoTargetCol == cargoCol[i] && cargoTargetRow == cargoRow[i]) {
+      return false;
+    } else if (cargoTargetCol < 0 || cargoTargetCol > gridColumns - 1 || cargoTargetRow < 0 || cargoTargetRow > gridRows - 1) {
+      return false;
+    } else if (isInElectricField(cargoTargetCol, cargoTargetRow)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void moveCargo(int cargoIndex) {
+  cargoCol[cargoIndex] = cargoTargetCol;
+  cargoRow[cargoIndex] = cargoTargetRow;
+}
