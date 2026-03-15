@@ -61,19 +61,16 @@ int calculatePlayerTargetRow(int directionRow) {
 //   int oldPlayerCol = playerCol;
 //   int oldPlayerRow = playerRow;
 
+boolean isTileWalkable() {
+  if (checkIfWithinGridBoundaries(playerTargetCol, playerTargetRow) == false) {
+    return false;
+  } else if (isInElectricField(playerTargetCol, playerTargetRow)) {
+    return false;
+  } else {
+    return true;
+  }
+}
 
-//   //Calculate player target
-//   playerTargetCol = calculateTargetCol(playerCol, directionCol);
-//   playerTargetRow = calculateTargetRow(playerRow, directionRow);
-
-//   //check if player target is within playfield  boundaries
-//   if (checkIfWithinGridBoundaries(playerTargetCol, playerTargetRow) == false) {
-//     return;
-//   }
-//   //check if player moves into obstacle field
-//   if (isInElectricField(playerTargetCol, playerTargetRow)) {
-//     return;
-//   }
 
 //   // check if cargo on player target
 //   int cargoIndex = isTileOccupied(playerTargetCol, playerTargetRow);
