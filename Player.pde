@@ -1,20 +1,17 @@
 int playerCol, playerRow;
-int playerTargetCol, playerTargetRow;
-int cargoTargetCol, cargoTargetRow;
-
-
 //   int oldPlayerCol = playerCol;
 //   int oldPlayerRow = playerRow;
 
 //Main method for moving player
 void movePlayer() {
+
   int directionCol = changeInputToDirectionCol();
   int directionRow = changeInputToDirectionRow();
 
-  calculatePlayerTargetCol(directionCol);
-  calculatePlayerTargetRow(directionRow);
+  int playerTargetCol = calculatePlayerTargetCol(directionCol);
+  int playerTargetRow = calculatePlayerTargetRow(directionRow);
 
-  if (isTileWalkable()) {
+  if (isTileWalkable(playerTargetCol, playerTargetRow)) {
     movePlayerTo(playerTargetCol, playerTargetRow);
     updateScore();
   }
@@ -28,7 +25,7 @@ void drawPlayer() {
   circle(playerX, playerY, getCellSize());
 }
 
-//Change keyboard input to column
+//Transforms keyboard input to direction columns
 int changeInputToDirectionCol() {
   int directionCol = 0;
 
@@ -45,7 +42,7 @@ int changeInputToDirectionCol() {
   return directionCol;
 }
 
-//Change keyboard input to row
+//Transforms keyboard input to direction rows
 int changeInputToDirectionRow() {
   int directionRow = 0;
 
@@ -72,11 +69,26 @@ int calculatePlayerTargetRow(int directionRow) {
   return playerTargetRow;
 }
 
+int calculateTargetCol(int col, int directionCol) {
+  return col + directionCol;
+}
+
+int calculateTargetRow(int row, int directionRow) {
+  return row + directionRow;
+}
 //Check if player's target is valid
-boolean isTileWalkable() {
+boolean isTileWalkable(int playerTargetCol, int playerTargetRow) {
   if (checkIfWithinGridBoundaries(playerTargetCol, playerTargetRow) == false) {
     return false;
   } else if (isInElectricField(playerTargetCol, playerTargetRow)) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+boolean checkIfWithinGridBoundaries(int col, int row) {
+  if (col < 0 || col > gridColumns -1 || row < 0 || row > gridRows -1) {
     return false;
   } else {
     return true;
@@ -87,6 +99,10 @@ void movePlayerTo(int playerTargetCol, int playerTargetRow) {
   playerCol = playerTargetCol;
   playerRow = playerTargetRow;
 }
+
+
+
+
 
 //   //check pullCargoMode
 //   if (pullCargoMode) {
@@ -101,19 +117,3 @@ void movePlayerTo(int playerTargetCol, int playerTargetRow) {
 //     }
 //   }
 // }
-
-boolean checkIfWithinGridBoundaries(int col, int row) {
-  if (col < 0 || col > gridColumns -1 || row < 0 || row > gridRows -1) {
-    return false;
-  } else {
-    return true;
-  }
-}
-
-int calculateTargetCol(int col, int directionCol) {
-  return col + directionCol;
-}
-
-int calculateTargetRow(int row, int directionRow) {
-  return row + directionRow;
-}

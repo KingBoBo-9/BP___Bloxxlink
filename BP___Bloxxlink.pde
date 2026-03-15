@@ -16,7 +16,6 @@ void draw() {
   drawObstacle();
 }
 
-
 void keyPressed() {
   movePlayer();
 
