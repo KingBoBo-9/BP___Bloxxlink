@@ -18,7 +18,11 @@ void draw() {
 
 
 void keyPressed() {
-  movePlayer();
+  // movePlayer();
+  changeInputToDirectionCol();
+  changeInputToDirectionRow();
+
+
 
 
   //Press enter when next to cargo to pull cargo

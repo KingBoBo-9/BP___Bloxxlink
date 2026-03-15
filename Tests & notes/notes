@@ -30,6 +30,29 @@ Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet
 
 
 
+movePlayer 2.0
+- calculate playerTarget
+- check if playerTarget is within grid
+- check if playerTarget is in obstacle range
+- check if cargo on playerTarget
+    if cargo:
+        - calculate cargoTarget
+        - check if cargoTarget is within grid
+        - check if cargoTarget is in obstacle range
+        - check if cargo at cargoTarget
+        - move cargo
+- move player
+- update score
+- check pullCargoMode?
+
+
+
+
+
+
+
+
+
 
 
 
