@@ -8,8 +8,9 @@ void setup() {
 }
 
 void draw() {
-  if (gameIsOver()) {
+  if (gameOver == true) {
     showEndScreen();
+    drawButton();
   } else {
     background(100);
     drawGrid();
@@ -25,17 +26,16 @@ void keyPressed() {
   moveCargo();
   checkForCargo();
   togglePullCargoMode();
+  gameIsOver();
+
 
   //To-do: delete
   //   println("PullCargoMode is now: " + pullCargoMode);
   // println("Game is won = " + gameIsOver());
 }
 
-void showEndScreen() {
-  background(200);
-  textAlign(CENTER, CENTER);
-  fill(0);
-  textSize(width / 20);
-  text("Winner: " + winner, width / 2, height / 2);
-  text("Score: " + getPlayer1Score(), width / 2, height / 2 + height / 10);
+void mousePressed() {
+  if (buttonIsPressed()) {
+    gameOver = false;
+  }
 }
