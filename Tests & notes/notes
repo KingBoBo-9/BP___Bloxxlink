@@ -1,5 +1,9 @@
 Questions:
 
+To do:
+    - adjust spawn so things can't spawn on same tile 
+    - make cargo collision at edge for player 
+
 N.B.
 - Constanten!
 - Comments!
@@ -21,8 +25,10 @@ N.B.
 - code kwaliteit is beangrijk!!
 
 
+
 REFACTOR:
 - ALLES
+- boolean names
 
 
 De code maakt zelf zo veel mogelijk duidelijk wat het doet. 
@@ -30,48 +36,33 @@ Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet
 
 
 
-movePlayer 2.0
-- calculate playerTarget
-- check if playerTarget is within grid
-- check if playerTarget is in obstacle range
-- check if cargo on playerTarget
-    if cargo:
-        - calculate cargoTarget
-        - check if cargoTarget is within grid
-        - check if cargoTarget is in obstacle range
-        - check if cargo at cargoTarget
-        - move cargo
-- move player
-- update score
-- check pullCargoMode?
+-- movePlayer 2.0
+-- - calculate playerTarget
+-- - check if playerTarget is within grid
+-- - check if playerTarget is in obstacle range
+-- - check if cargo on playerTarget
+--     if cargo:
+--         - calculate cargoTarget
+--         - check if cargoTarget is within grid
+--         - check if cargoTarget is in obstacle range
+--         - check if cargo at cargoTarget
+--         - move cargo
+-- - move player
+-- - update score
+-- - check pullCargoMode?
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-movePlayer()
-1. richting omzetten naar directionCol / Row ✅
-2. player target berekenen ✅
-3. grid grenzen checken ✅
-4. check if cargo ✅
-    if cargo: ✅
-        5. bereken cargo target ✅
-        5.1 check of cargo op cargo target ✅
-        6.  cargo grid grenzen checken ✅
-        7. cargo verplaatsen ✅
-8. speler verplaatsen ✅
-9. check if pullCargoMode = true
-        if true:
+-- movePlayer()
+-- 1. richting omzetten naar directionCol / Row ✅
+-- 2. player target berekenen ✅
+-- 3. grid grenzen checken ✅
+-- 4. check if cargo ✅
+--     if cargo: ✅
+--         5. bereken cargo target ✅
+--         5.1 check of cargo op cargo target ✅
+--         6.  cargo grid grenzen checken ✅
+--         7. cargo verplaatsen ✅
+-- 8. speler verplaatsen ✅
+-- 9. check if pullCargoMode = true
+--         if true:
             

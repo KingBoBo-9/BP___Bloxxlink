@@ -27,23 +27,37 @@ void drawCargo() {
   }
 }
 
+//Check if cargo above, under, or next to
 boolean checkForCargo() {
-  for (int i = 0; i < cargoCount; i++) {
-    int colDifference = abs(cargoCol[i] - playerCol);
-    int rowDifference = abs(cargoRow[i] - playerRow);
+  if (key == RETURN || key == ENTER) {
+    for (int i = 0; i < cargoCount; i++) {
+      int colDifference = abs(cargoCol[i] - playerCol);
+      int rowDifference = abs(cargoRow[i] - playerRow);
 
-    if (colDifference + rowDifference == 1) {
-      return true;
+      if (colDifference + rowDifference == 1) {
+        return true;
+      }
     }
+    return false;
   }
   return false;
 }
 
-boolean togglePullCargoMode() {
-  pullCargoMode = !pullCargoMode;
-  return pullCargoMode;
-}
+void togglePullCargoMode() {
+  //Enable pullCargoMode when near cargo
+  if (checkForCargo()) {
+    pullCargoMode = !pullCargoMode;
+    return;
+  }
 
+  //Disable pullCargoMode when it's already active
+  if (pullCargoMode) {
+    if (key == RETURN || key == ENTER) {
+      pullCargoMode = !pullCargoMode;
+      return;
+    }
+  }
+}
 
 void sortCargoRowsAndCols() {
   arrayCopy(cargoCol, cargoColCopy);
@@ -167,4 +181,18 @@ boolean isTileValidForCargo(int cargoTargetCol, int cargoTargetRow) {
 void moveCargoTo(int cargoIndex, int cargoTargetCol, int cargoTargetRow) {
   cargoCol[cargoIndex] = cargoTargetCol;
   cargoRow[cargoIndex] = cargoTargetRow;
+}
+
+void pullCargoTo(int directionCol, int directionRow) {
+  if (pullCargoMode) {
+    int pullCol = oldPlayerCol - directionCol;
+    int pullRow = oldPlayerRow - directionRow;
+
+    int cargoPullIndex = getCargoIndex(pullCol, pullRow);
+
+    if (cargoPullIndex != -1) {
+      cargoCol[cargoPullIndex] = oldPlayerCol;
+      cargoRow[cargoPullIndex] = oldPlayerRow;
+    }
+  }
 }

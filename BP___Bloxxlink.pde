@@ -19,18 +19,10 @@ void draw() {
 void keyPressed() {
   movePlayer();
   moveCargo();
+  checkForCargo();
+  togglePullCargoMode();
 
-
-
-
-  //Press enter when next to cargo to pull cargo
-  if (key == RETURN || key == ENTER) {
-    if (checkForCargo() == true) {
-      togglePullCargoMode();
-    }
-    println("checkForCargo = " + checkForCargo());
-    // println("togglePullCargoMode = " + pullCargoMode);
-  }
-
-  // println(checkIfGameIsWon());
+  //To-do: delete
+  //   println("PullCargoMode is now: " + pullCargoMode);
+  // println("Game is won = " + checkIfGameIsWon());
 }

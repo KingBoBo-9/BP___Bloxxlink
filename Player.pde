@@ -1,13 +1,15 @@
 int playerCol, playerRow;
 int playerTargetCol, playerTargetRow;
-//   int oldPlayerCol = playerCol;
-//   int oldPlayerRow = playerRow;
+int oldPlayerCol, oldPlayerRow;
 
 //Main method for moving player
 void movePlayer() {
 
   int directionCol = changeInputToDirectionCol();
   int directionRow = changeInputToDirectionRow();
+  oldPlayerCol = playerCol;
+  oldPlayerRow = playerRow;
+
 
   playerTargetCol = calculatePlayerTargetCol(directionCol);
   playerTargetRow = calculatePlayerTargetRow(directionRow);
@@ -16,6 +18,7 @@ void movePlayer() {
     movePlayerTo(playerTargetCol, playerTargetRow);
     updateScore();
   }
+  pullCargoTo(directionCol, directionRow);
 }
 
 void drawPlayer() {
@@ -101,20 +104,13 @@ void movePlayerTo(int playerTargetCol, int playerTargetRow) {
   playerRow = playerTargetRow;
 }
 
+boolean isCargoOnPlayerTarget(int playerTargetCol, int playerTargetRow) {
+  for (int i = 0; i < cargoCount; i++) {
+    if (playerTargetCol == cargoCol[i] && playerTargetRow == cargoRow[i]) {
+      println("There's cargo there");
+      return true;
+    }
+  }
+  return false;
+}
 
-
-
-
-//   //check pullCargoMode
-//   if (pullCargoMode) {
-//     int pullCol = oldPlayerCol - directionCol;
-//     int pullRow = oldPlayerRow - directionRow;
-
-//     int cargoPullIndex = isTileOccupied(pullCol, pullRow);
-
-//     if (cargoPullIndex != -1) {
-//       cargoCol[cargoPullIndex] = oldPlayerCol;
-//       cargoRow[cargoPullIndex] = oldPlayerRow;
-//     }
-//   }
-// }
