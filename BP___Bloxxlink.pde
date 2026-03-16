@@ -8,29 +8,39 @@ void setup() {
 }
 
 void draw() {
-  background(100);
-  drawGrid();
-  drawScore();
-  drawCargo();
-  drawPlayer();
-  drawObstacle();
+  if (gameOver == true) {
+    showEndScreen();
+    drawButton(width / 2, height - rectHeight);
+  } else {
+    background(100);
+    drawGrid();
+    drawScore();
+    drawCargo();
+    drawPlayer();
+    drawObstacle();
+  }
 }
 
 void keyPressed() {
-  movePlayer();
-  moveCargo();
-
-
-
-
-  //Press enter when next to cargo to pull cargo
-  if (key == RETURN || key == ENTER) {
-    if (checkForCargo() == true) {
-      togglePullCargoMode();
-    }
-    println("checkForCargo = " + checkForCargo());
-    // println("togglePullCargoMode = " + pullCargoMode);
+  if (gameOver == false) {
+    movePlayer();
+    moveCargo();
+    checkForCargo();
+    togglePullCargoMode();
+    gameIsOver();
   }
+}
 
-  // println(checkIfGameIsWon());
+void mousePressed() {
+  if (buttonIsPressed()) {
+    startNewGame();
+  }
+}
+
+void startNewGame() {
+  gameOver = false;
+  initCargoes();
+  initObstacles();
+  drawPlayer();
+  setPlayer1Score(1000);
 }

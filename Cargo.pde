@@ -1,7 +1,8 @@
 
 boolean pullCargoMode = false;
+boolean gameOver = false;
 
-int cargoCount = 3;
+int cargoCount = 2;
 int[] cargoCol = new int[cargoCount];
 int[] cargoRow = new int[cargoCount];
 int[] cargoColCopy = new int[cargoCount];
@@ -27,23 +28,37 @@ void drawCargo() {
   }
 }
 
+//Check if cargo above, under, or next to
 boolean checkForCargo() {
-  for (int i = 0; i < cargoCount; i++) {
-    int colDifference = abs(cargoCol[i] - playerCol);
-    int rowDifference = abs(cargoRow[i] - playerRow);
+  if (key == RETURN || key == ENTER) {
+    for (int i = 0; i < cargoCount; i++) {
+      int colDifference = abs(cargoCol[i] - playerCol);
+      int rowDifference = abs(cargoRow[i] - playerRow);
 
-    if (colDifference + rowDifference == 1) {
-      return true;
+      if (colDifference + rowDifference == 1) {
+        return true;
+      }
     }
+    return false;
   }
   return false;
 }
 
-boolean togglePullCargoMode() {
-  pullCargoMode = !pullCargoMode;
-  return pullCargoMode;
-}
+void togglePullCargoMode() {
+  //Enable pullCargoMode when near cargo
+  if (checkForCargo()) {
+    pullCargoMode = !pullCargoMode;
+    return;
+  }
 
+  //Disable pullCargoMode when it's already active
+  if (pullCargoMode) {
+    if (key == RETURN || key == ENTER) {
+      pullCargoMode = !pullCargoMode;
+      return;
+    }
+  }
+}
 
 void sortCargoRowsAndCols() {
   arrayCopy(cargoCol, cargoColCopy);
@@ -94,15 +109,16 @@ boolean isCargoOnSameCol() {
 }
 
 //Check if game win condition is met:
-boolean checkIfGameIsWon() {
+boolean gameIsOver() {
   sortCargoRowsAndCols();
 
   if ((isCargoConnectedRow() == true && isCargoOnSameRow() == true) || (isCargoConnectedCol() == true && isCargoOnSameCol() == true)) {
     //TO-DO: Delete
     println("GAME WON");
-    return true;
+    return gameOver = true;
   } else {
-    return false;
+    print("gameOver = " + gameOver);
+    return gameOver = false;
   }
 }
 
@@ -167,4 +183,18 @@ boolean isTileValidForCargo(int cargoTargetCol, int cargoTargetRow) {
 void moveCargoTo(int cargoIndex, int cargoTargetCol, int cargoTargetRow) {
   cargoCol[cargoIndex] = cargoTargetCol;
   cargoRow[cargoIndex] = cargoTargetRow;
+}
+
+void pullCargoTo(int directionCol, int directionRow) {
+  if (pullCargoMode) {
+    int pullCol = oldPlayerCol - directionCol;
+    int pullRow = oldPlayerRow - directionRow;
+
+    int cargoPullIndex = getCargoIndex(pullCol, pullRow);
+
+    if (cargoPullIndex != -1) {
+      cargoCol[cargoPullIndex] = oldPlayerCol;
+      cargoRow[cargoPullIndex] = oldPlayerRow;
+    }
+  }
 }
