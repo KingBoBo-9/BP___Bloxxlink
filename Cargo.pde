@@ -1,7 +1,7 @@
 
 boolean pullCargoMode = false;
 
-int cargoCount = 3;
+int cargoCount = 2;
 int[] cargoCol = new int[cargoCount];
 int[] cargoRow = new int[cargoCount];
 int[] cargoColCopy = new int[cargoCount];
@@ -108,7 +108,7 @@ boolean isCargoOnSameCol() {
 }
 
 //Check if game win condition is met:
-boolean checkIfGameIsWon() {
+boolean gameIsOver() {
   sortCargoRowsAndCols();
 
   if ((isCargoConnectedRow() == true && isCargoOnSameRow() == true) || (isCargoConnectedCol() == true && isCargoOnSameCol() == true)) {

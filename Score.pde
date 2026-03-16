@@ -1,4 +1,5 @@
 int player1Score = 1000;
+String winner = "Player 1";
 
 void drawScore() {
   fill(0);
@@ -8,4 +9,8 @@ void drawScore() {
 
 void updateScore() {
   player1Score -= 1;
+}
+
+int getPlayer1Score() {
+  return player1Score;
 }
