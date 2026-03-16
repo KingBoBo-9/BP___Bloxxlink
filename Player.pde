@@ -1,4 +1,5 @@
 int playerCol, playerRow;
+int playerTargetCol, playerTargetRow;
 //   int oldPlayerCol = playerCol;
 //   int oldPlayerRow = playerRow;
 
@@ -8,8 +9,8 @@ void movePlayer() {
   int directionCol = changeInputToDirectionCol();
   int directionRow = changeInputToDirectionRow();
 
-  int playerTargetCol = calculatePlayerTargetCol(directionCol);
-  int playerTargetRow = calculatePlayerTargetRow(directionRow);
+  playerTargetCol = calculatePlayerTargetCol(directionCol);
+  playerTargetRow = calculatePlayerTargetRow(directionRow);
 
   if (isTileWalkable(playerTargetCol, playerTargetRow)) {
     movePlayerTo(playerTargetCol, playerTargetRow);

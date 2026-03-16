@@ -18,6 +18,7 @@ void draw() {
 
 void keyPressed() {
   movePlayer();
+  moveCargo();
 
 
 
@@ -28,7 +29,7 @@ void keyPressed() {
       togglePullCargoMode();
     }
     println("checkForCargo = " + checkForCargo());
-    println("togglePullCargoMode = " + pullCargoMode);
+    // println("togglePullCargoMode = " + pullCargoMode);
   }
 
   // println(checkIfGameIsWon());

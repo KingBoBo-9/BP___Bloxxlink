@@ -1,6 +1,5 @@
-int cargoTargetCol, cargoTargetRow;
-boolean pullCargoMode = false;
 
+boolean pullCargoMode = false;
 
 int cargoCount = 3;
 int[] cargoCol = new int[cargoCount];
@@ -17,7 +16,6 @@ void initCargoes() {
   }
 }
 
-
 void drawCargo() {
   for (int i = 0; i < cargoCount; i++) {
     int cargoX = calculateGridX() + cargoCol[i] * getCellSize();
@@ -30,18 +28,11 @@ void drawCargo() {
 }
 
 boolean checkForCargo() {
-  //checks if cargo is above, under, left of, or right of player.
   for (int i = 0; i < cargoCount; i++) {
-    if (cargoCol[i] == playerCol && cargoRow[i] == playerRow -1) {
-      return true;
-    }
-    if (cargoCol[i] == playerCol && cargoRow[i] == playerRow + 1) {
-      return true;
-    }
-    if (cargoRow[i] == playerRow && cargoCol[i] == playerCol - 1) {
-      return true;
-    }
-    if (cargoRow[i] == playerRow && cargoCol[i] == playerCol + 1) {
+    int colDifference = abs(cargoCol[i] - playerCol);
+    int rowDifference = abs(cargoRow[i] - playerRow);
+
+    if (colDifference + rowDifference == 1) {
       return true;
     }
   }
@@ -107,6 +98,8 @@ boolean checkIfGameIsWon() {
   sortCargoRowsAndCols();
 
   if ((isCargoConnectedRow() == true && isCargoOnSameRow() == true) || (isCargoConnectedCol() == true && isCargoOnSameCol() == true)) {
+    //TO-DO: Delete
+    println("GAME WON");
     return true;
   } else {
     return false;
@@ -114,42 +107,64 @@ boolean checkIfGameIsWon() {
 }
 
 
+//////////////               ///////////////               ///////////////               ///////////////               ///////////////
+void moveCargo() {
+  int cargoIndex = getCargoIndex(playerTargetCol, playerTargetRow);
 
+  if (cargoIndex == -1) {
+    return;
+  }
 
+  int cargoTargetRow = calculateCargoTargetRow(cargoIndex, changeInputToDirectionRow());
+  int cargoTargetCol = calculateCargoTargetCol(cargoIndex, changeInputToDirectionCol());
 
+  if (isTileValidForCargo(cargoTargetCol, cargoTargetRow)) {
+    moveCargoTo(cargoIndex, cargoTargetCol, cargoTargetRow);
+  }
+}
 
+int getCargoIndex(int col, int row) {
+  for (int i = 0; i < cargoCount; i++) {
+    if (cargoCol[i] == col && cargoRow[i] == row) {
+      return i;
+    }
+  }
+  return -1;
+}
 
-////////////////            ///////////////               //////////////
-// int getCargoIndex() {
-//   int cargoIndex = isTileOccupied(playerTargetCol, playerTargetRow);
-//   return cargoIndex;
-// }
+int calculateCargoTargetRow(int cargoIndex, int directionRow) {
+  if (cargoIndex != -1) {
+    int cargoTargetRow = cargoRow[cargoIndex] + directionRow;
+    return cargoTargetRow;
+  }
+  return 0 ;
+}
 
-// void handlePushCargo(int cargoIndex, int directionCol, int directionRow) {
-//   if (cargoIndex != -1) {
-//     cargoTargetCol = cargoCol[cargoIndex] + directionCol;
-//     cargoTargetRow = cargoRow[cargoIndex] + directionRow;
-//   }
-// }
+int calculateCargoTargetCol(int cargoIndex, int directionCol) {
+  if (cargoIndex != -1) {
+    int cargoTargetCol = cargoCol[cargoIndex] + directionCol;
+    return cargoTargetCol;
+  }
+  return 0;
+}
+boolean isTileValidForCargo(int cargoTargetCol, int cargoTargetRow) {
+  // check if there's cargo at cargoTarget
+  // Then check if cargo moves within grid
+  // Finally check if cargo moves into obstacle field
 
-// boolean isTileValidForCargo() {
-//   // check if there's cargo at cargoTarget
-//   // Then check if cargo moves within grid
-//   // Finally check if cargo moves into obstacle field
+  for (int i = 0; i < cargoCount; i++) {
+    if (cargoTargetCol == cargoCol[i] && cargoTargetRow == cargoRow[i]) {
+      return false;
+    } else if (cargoTargetCol < 0 || cargoTargetCol > gridColumns - 1 || cargoTargetRow < 0 || cargoTargetRow > gridRows - 1) {
+      return false;
+    } else if (isInElectricField(cargoTargetCol, cargoTargetRow)) {
+      return false;
+    }
+  }
+  return true;
+}
 
-//   for (int i = 0; i < cargoCount; i++) {
-//     if (cargoTargetCol == cargoCol[i] && cargoTargetRow == cargoRow[i]) {
-//       return false;
-//     } else if (cargoTargetCol < 0 || cargoTargetCol > gridColumns - 1 || cargoTargetRow < 0 || cargoTargetRow > gridRows - 1) {
-//       return false;
-//     } else if (isInElectricField(cargoTargetCol, cargoTargetRow)) {
-//       return false;
-//     }
-//   }
-//   return true;
-// }
-
-// void moveCargo(int cargoIndex) {
-//   cargoCol[cargoIndex] = cargoTargetCol;
-//   cargoRow[cargoIndex] = cargoTargetRow;
-// }
+void moveCargoTo(int cargoIndex, int cargoTargetCol, int cargoTargetRow) {
+  cargoCol[cargoIndex] = cargoTargetCol;
+  cargoRow[cargoIndex] = cargoTargetRow;
+}
