@@ -10,7 +10,7 @@ void setup() {
 void draw() {
   if (gameOver == true) {
     showEndScreen();
-    drawButton();
+    drawButton(width / 2, height - rectHeight);
   } else {
     background(100);
     drawGrid();
@@ -29,11 +29,6 @@ void keyPressed() {
     togglePullCargoMode();
     gameIsOver();
   }
-
-
-  //To-do: delete
-  //   println("PullCargoMode is now: " + pullCargoMode);
-  // println("Game is won = " + gameIsOver());
 }
 
 void mousePressed() {

@@ -10,11 +10,12 @@ void showEndScreen() {
   text("Score: " + getPlayer1Score(), width / 2, height / 2 + height / 10);
 }
 
-void drawButton() {
+void drawButton(int x, int y) {
+  rectX = x;
+  rectY = y;
+
   rectWidth = width / 6;
   rectHeight = height / 15;
-  rectX = width / 2;
-  rectY = height - rectHeight;
 
   fill(#F59E34);
   rectMode(CENTER);
@@ -32,8 +33,6 @@ boolean buttonIsPressed() {
     return false;
   }
 }
-
-
 
 int getButtonX1() {
   return rectX - rectWidth / 2;
