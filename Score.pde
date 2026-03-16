@@ -14,3 +14,7 @@ void updateScore() {
 int getPlayer1Score() {
   return player1Score;
 }
+
+void setPlayer1Score(int score) {
+  player1Score = score;
+}

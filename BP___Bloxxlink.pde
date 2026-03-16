@@ -22,11 +22,13 @@ void draw() {
 }
 
 void keyPressed() {
-  movePlayer();
-  moveCargo();
-  checkForCargo();
-  togglePullCargoMode();
-  gameIsOver();
+  if (gameOver == false) {
+    movePlayer();
+    moveCargo();
+    checkForCargo();
+    togglePullCargoMode();
+    gameIsOver();
+  }
 
 
   //To-do: delete
@@ -36,6 +38,14 @@ void keyPressed() {
 
 void mousePressed() {
   if (buttonIsPressed()) {
-    gameOver = false;
+    startNewGame();
   }
+}
+
+void startNewGame() {
+  gameOver = false;
+  initCargoes();
+  initObstacles();
+  drawPlayer();
+  setPlayer1Score(1000);
 }
