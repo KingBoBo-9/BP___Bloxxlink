@@ -32,6 +32,7 @@ REFACTOR:
 - ALLES
 - boolean names
 - EndScreen code (is van huiswerk opdracht)
+    - electric field 
 
 
 De code maakt zelf zo veel mogelijk duidelijk wat het doet. 
@@ -69,3 +70,15 @@ Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet
 -- 9. check if pullCargoMode = true
 --         if true:
             
+
+//Determine which screen to show
+start screen = 1
+play screen = 2
+end screen = 3
+
+if bool startscreen == true
+    showScreen = 1 
+else if startscreen == false
+    if play screen == true
+        showScreen = 2
+else if g

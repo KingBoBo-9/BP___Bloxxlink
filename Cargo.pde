@@ -1,4 +1,3 @@
-
 boolean pullCargoMode = false;
 boolean gameOver = false;
 

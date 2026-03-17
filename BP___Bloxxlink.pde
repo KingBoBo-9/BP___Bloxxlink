@@ -1,3 +1,5 @@
+boolean newGame = true;
+
 void setup() {
   size(800, 700);
   // fullScreen();
@@ -8,7 +10,9 @@ void setup() {
 }
 
 void draw() {
-  if (gameOver == true) {
+  if (newGame == true) {
+    showStartScreen();
+  } else if (gameOver == true) {
     showEndScreen();
     drawButton(width / 2, height - rectHeight);
   } else {
