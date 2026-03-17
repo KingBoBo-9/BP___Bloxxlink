@@ -69,6 +69,17 @@ boolean isTileOccupiedByExistingCargo(int col, int row, int currentIndex) {
 }
 
 
+boolean isTileOccupiedByExistingObstacle(int col, int row, int currentIndex) {
+  for (int i = 0; i < currentIndex; i++) {
+    if (obstacleCol[i] == col && obstacleRow[i] == row) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+
 
 
 int calculateGridX() {
