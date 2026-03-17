@@ -1,4 +1,4 @@
-int numberOfObstacles = 5;
+int numberOfObstacles = 12;
 int obstacleX, obstacleY;
 int[] obstacleCol = new int[numberOfObstacles];
 int[] obstacleRow = new int[numberOfObstacles];
@@ -8,7 +8,9 @@ void initObstacles() {
     obstacleCol[i] = int(random(getGridColumns()));
     obstacleRow[i] = int(random(getGridRows()));
 
-    while (isTileOccupiedByExistingObstacle(obstacleCol[i], obstacleRow[i], i) || isInElectricFieldOfOlderObstacle(obstacleCol[i], obstacleRow[i], i)) {
+    while (isTileOccupiedByExistingObstacle(obstacleCol[i], obstacleRow[i], i) ||
+      isInElectricFieldOfOlderObstacle(obstacleCol[i], obstacleRow[i], i) ||
+      obstacleRow[i] == playerRow && obstacleCol[i] == playerRow ) {
       obstacleCol[i] = int(random(getGridColumns()));
       obstacleRow[i] = int(random(getGridRows()));
     }
