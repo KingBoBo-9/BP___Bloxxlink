@@ -1,8 +1,7 @@
-
 boolean pullCargoMode = false;
 boolean gameOver = false;
 
-int cargoCount = 2;
+int cargoCount = 15;
 int[] cargoCol = new int[cargoCount];
 int[] cargoRow = new int[cargoCount];
 int[] cargoColCopy = new int[cargoCount];
@@ -14,6 +13,11 @@ void initCargoes() {
   for (int i = 0; i < cargoCount; i++) {
     cargoCol[i] = int(random(getGridColumns()));
     cargoRow[i] = int(random(getGridRows()));
+
+    while (isTileOccupiedByExistingCargo(cargoCol[i], cargoRow[i], i) || isObstacle(cargoCol[i], cargoRow[i]) || isInElectricField(cargoCol[i], cargoRow[i])) {
+      cargoCol[i] = int(random(getGridColumns()));
+      cargoRow[i] = int(random(getGridRows()));
+    }
   }
 }
 

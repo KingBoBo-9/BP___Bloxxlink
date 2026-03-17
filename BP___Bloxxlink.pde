@@ -1,24 +1,30 @@
+boolean newGame = true;
+
 void setup() {
   size(800, 700);
   // fullScreen();
   drawMap(width / 2, height / 2);
 
-  initCargoes();
   initObstacles();
+  initCargoes();
+  initStartScreenButtons();
 }
 
 void draw() {
-  if (gameOver == true) {
-    showEndScreen();
-    drawButton(width / 2, height - rectHeight);
-  } else {
-    background(100);
-    drawGrid();
-    drawScore();
-    drawCargo();
-    drawPlayer();
-    drawObstacle();
-  }
+  // if (newGame == true) {
+  // showStartScreen();
+  // drawStartButtons();
+  // } else if (gameOver == true) {
+  // showEndScreen();
+  // drawButton(width / 2, height - width / 6, width / 6, height /15);
+  // } else {
+  background(100);
+  drawGrid();
+  drawScore();
+  drawCargo();
+  drawPlayer();
+  drawObstacle();
+  // }
 }
 
 void keyPressed() {

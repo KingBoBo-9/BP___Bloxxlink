@@ -32,6 +32,44 @@ void drawGrid() {
 }
 
 
+boolean isTileOccupied(int col, int row) {
+  //check cargo
+  for (int i = 0; i < cargoCount; i++) {
+    if (cargoCol[i] == col && cargoRow[i] == row) {
+      return true;
+    }
+  }
+
+  for (int i = 0; i < numberOfObstacles; i++) {
+    if (obstacleCol[i] == col && obstacleRow[i] == row) {
+      return true;
+    }
+  }
+  return false;
+}
+
+boolean isTileBlocked(int col, int row) {
+  if (isTileOccupied(col, row)) {
+    return true;
+  }
+
+  if (isInElectricField(col, row)) {
+    return true;
+  }
+  return false;
+}
+
+boolean isTileOccupiedByExistingCargo(int col, int row, int currentIndex) {
+  for (int i = 0; i < currentIndex; i++) {
+    if (cargoCol[i] == col && cargoRow[i] == row) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+
 
 int calculateGridX() {
   return gridX = width / 2 - gridTotalWidth / 2;

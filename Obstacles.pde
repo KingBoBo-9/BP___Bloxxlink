@@ -15,16 +15,26 @@ void drawObstacle() {
 
     obstacleX = calculateGridX() + obstacleCol[i] * getCellSize();
     obstacleY = calculateGridY() + obstacleRow[i] * getCellSize();
-
+    // stroke(255, 0, 0);
     fill(#32a8a8);
+    // fill(0, 0, 255, 0);
     square(obstacleX - getCellSize(), obstacleY - getCellSize(), 3 * getCellSize());
 
     rectMode(CORNER);
     fill(#62ade3);
+    // fill(0, 0, 255, 0);
     square(obstacleX, obstacleY, getCellSize());
-
-    fill(255, 0, 0);
+    // stroke(0);
   }
+}
+
+boolean isObstacle(int col, int row) {
+  for (int i = 0; i < numberOfObstacles; i++) {
+    if (obstacleCol[i] == col && obstacleRow[i] == row) {
+      return true;
+    }
+  }
+  return false;
 }
 
 boolean isInElectricField(int col, int row) {
@@ -59,6 +69,10 @@ boolean isInElectricField(int col, int row) {
     }
     //bottom right
     if (col == obstacleCol[i] +1 && row == obstacleRow[i] +1) {
+      return true;
+    }
+    //middle
+    if (col == obstacleCol[i] && row == obstacleRow[i]) {
       return true;
     }
   }
