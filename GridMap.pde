@@ -49,13 +49,21 @@ boolean isTileOccupied(int col, int row) {
 }
 
 boolean isTileBlocked(int col, int row) {
-  // if isTileOccupied(col, row)) -> return true
   if (isTileOccupied(col, row)) {
     return true;
   }
 
   if (isInElectricField(col, row)) {
     return true;
+  }
+  return false;
+}
+
+boolean isTileOccupiedByExistingCargo(int col, int row, int currentIndex) {
+  for (int i = 0; i < currentIndex; i++) {
+    if (cargoCol[i] == col && cargoRow[i] == row) {
+      return true;
+    }
   }
   return false;
 }

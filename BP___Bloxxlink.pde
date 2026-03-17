@@ -5,25 +5,25 @@ void setup() {
   // fullScreen();
   drawMap(width / 2, height / 2);
 
-  initCargoes();
   initObstacles();
+  initCargoes();
   initStartScreenButtons();
 }
 
 void draw() {
   // if (newGame == true) {
-  showStartScreen();
-  drawStartButtons();
+  // showStartScreen();
+  // drawStartButtons();
   // } else if (gameOver == true) {
   // showEndScreen();
   // drawButton(width / 2, height - width / 6, width / 6, height /15);
   // } else {
-  //   background(100);
-  //   drawGrid();
-  //   drawScore();
-  //   drawCargo();
-  //   drawPlayer();
-  //   drawObstacle();
+  background(100);
+  drawGrid();
+  drawScore();
+  drawCargo();
+  drawPlayer();
+  drawObstacle();
   // }
 }
 
