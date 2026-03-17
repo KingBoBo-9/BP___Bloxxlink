@@ -10,21 +10,34 @@ void showEndScreen() {
   text("Score: " + getPlayer1Score(), width / 2, height / 2 + height / 10);
 }
 
-void drawButton(int x, int y) {
-  rectX = x;
-  rectY = y;
-
-  rectWidth = width / 6;
-  rectHeight = height / 15;
-
+void drawButton(int x, int y, int rectWidth, int rectHeight) {
   fill(#F59E34);
   rectMode(CENTER);
-  rect(rectX, rectY, rectWidth, rectHeight);
+  rect(x, y, rectWidth, rectHeight);
   fill(0);
+
+  //Draw text
   textAlign(CENTER, CENTER);
   textSize(width / 30);
-  text("Play Again?", rectX, rectY);
+  text("Play Again?", x, y);
 }
+
+
+// void drawButton(int x, int y) {
+//   rectX = x;
+//   rectY = y;
+
+//   rectWidth = width / 6;
+//   rectHeight = height / 15;
+
+//   fill(#F59E34);
+//   rectMode(CENTER);
+//   rect(rectX, rectY, rectWidth, rectHeight);
+//   fill(0);
+//   textAlign(CENTER, CENTER);
+//   textSize(width / 30);
+//   text("Play Again?", rectX, rectY);
+// }
 
 boolean buttonIsPressed() {
   if (mouseX >= getButtonX1() && mouseX <= getButtonX2() && mouseY >= getButtonY1() && mouseY <= getButtonY2()) {

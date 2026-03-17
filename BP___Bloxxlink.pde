@@ -10,19 +10,19 @@ void setup() {
 }
 
 void draw() {
-  if (newGame == true) {
-    showStartScreen();
-  } else if (gameOver == true) {
-    showEndScreen();
-    drawButton(width / 2, height - rectHeight);
-  } else {
-    background(100);
-    drawGrid();
-    drawScore();
-    drawCargo();
-    drawPlayer();
-    drawObstacle();
-  }
+  // if (newGame == true) {
+  //   showStartScreen();
+  // } else if (gameOver == true) {
+  showEndScreen();
+  drawButton(width / 2, height - width / 6, width / 6, height /15);
+  // } else {
+  //   background(100);
+  //   drawGrid();
+  //   drawScore();
+  //   drawCargo();
+  //   drawPlayer();
+  //   drawObstacle();
+  // }
 }
 
 void keyPressed() {
