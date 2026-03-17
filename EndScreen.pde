@@ -10,17 +10,22 @@ void showEndScreen() {
   text("Score: " + getPlayer1Score(), width / 2, height / 2 + height / 10);
 }
 
-void drawButton(int x, int y, int rectWidth, int rectHeight) {
-  fill(#F59E34);
-  rectMode(CENTER);
-  rect(x, y, rectWidth, rectHeight);
-  fill(0);
+// void drawButton(int x, int y, int buttonWidth, int buttonHeight) {
+//   rectX = x;
+//   rectY = y;
+//   rectWidth = buttonWidth;
+//   rectHeight = buttonHeight;
 
-  //Draw text
-  textAlign(CENTER, CENTER);
-  textSize(width / 30);
-  text("Play Again?", x, y);
-}
+//   fill(#F59E34);
+//   rectMode(CENTER);
+//   rect(x, y, rectWidth, rectHeight);
+//   fill(0);
+
+//   //Draw text
+//   textAlign(CENTER, CENTER);
+//   textSize(width / 30);
+//   text("Play Again?", x, y);
+// }
 
 
 // void drawButton(int x, int y) {
