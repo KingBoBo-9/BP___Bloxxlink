@@ -122,15 +122,13 @@ boolean isCargoOnSameCol() {
 }
 
 //Check if game win condition is met:
-int gameIsOver() {
+int gameIsWon() {
   sortCargoRowsAndCols();
 
   if ((isCargoConnectedRow() == true && isCargoOnSameRow() == true) || (isCargoConnectedCol() == true && isCargoOnSameCol() == true)) {
     //TO-DO: Delete
-    println("GAME WON");
     return gameState = 2;
   } else {
-    print("gameOver = " + gameOver);
     return gameState = 1;
   }
 }

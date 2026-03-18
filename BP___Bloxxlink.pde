@@ -1,12 +1,12 @@
 int gameState = 0;
 
-
 void setup() {
   size(800, 700);
   // fullScreen();
-  drawMap(width / 2, height / 2);
 
+  drawMap(width / 2, height / 2);
   initStartScreenButtons();
+  initPlayAgainButton();
 }
 
 void draw() {
@@ -22,31 +22,39 @@ void draw() {
     drawObstacle();
   } else if (gameState == 2) { //show end screen
     showEndScreen();
+    drawPlayAgainButton();
   }
 }
 
+
 void keyPressed() {
-  if (gameOver == false) {
-    movePlayer();
-    moveCargo();
-    checkForCargo();
-    togglePullCargoMode();
-    gameIsOver();
-  }
+  movePlayer();
+  moveCargo();
+  checkForCargo();
+  togglePullCargoMode();
+  gameIsWon();
 }
 
 void mousePressed() {
-  selectOptions();
+  if (gameState == 0) {
+    selectOptions();
+  } else if (gameState == 2) {
+    if (playAgainButtonClicked()) {
+      startNewGame();
+    }
+  }
+
 
 
   //end screen button
   // if (buttonIsPressed()) {
-  //   startNewGame();
+  //
+  // startNewGame();
   // }
 }
 
 void startNewGame() {
-  gameOver = false;
+  gameState = 0;
   initCargoes();
   initObstacles();
   drawPlayer();

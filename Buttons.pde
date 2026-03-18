@@ -6,12 +6,14 @@ int[] buttonW = new int[BUTTON_COUNT];
 int[] buttonH = new int[BUTTON_COUNT];
 String[] buttonText = new String[BUTTON_COUNT];
 
-void initEndScreenButtons() {
-  buttonX[7] = width/2 - width / 6;
-  buttonY[7] = height/3;
-  buttonW[7] = 100;
-  buttonH[7] = 60;
-  buttonText[7] = "Play Again";
+int[] playAgainButton = new int [4];
+
+
+void initPlayAgainButton() {
+  playAgainButton[0] = width/2;
+  playAgainButton[1] = height/2 + width / 5;
+  playAgainButton[2] = 100;
+  playAgainButton[3] = 60;
 }
 
 void initStartScreenButtons() {
@@ -72,20 +74,38 @@ void drawStartButtons() {
   }
 }
 
-void drawEndButtons() {
-  int i = 6;
+
+void drawPlayAgainButton() {
+  int buttonX = playAgainButton[0];
+  int buttonY = playAgainButton[1];
+  int buttonW = playAgainButton[2];
+  int buttonH = playAgainButton[3];
+  String buttonText = "Play Again";
 
   fill(#F59E34);
   rectMode(CENTER);
-  rect(buttonX[i], buttonY[i], buttonW[i], buttonH[i]);
+  rect(buttonX, buttonY, buttonW, buttonH);
 
   fill(0);
   textSize(15);
   textAlign(CENTER, CENTER);
-  text(buttonText[i], buttonX[i], buttonY[i]);
+  text(buttonText, buttonX, buttonY);
 }
 
-int getButtonClicked() {
+boolean playAgainButtonClicked() {
+  if (mouseX >= playAgainButton[0] - playAgainButton[2]/2 &&
+    mouseX <= playAgainButton[0] + playAgainButton[2]/2 &&
+    mouseY >= playAgainButton[1] - playAgainButton[3]/2 &&
+    mouseY <= playAgainButton[1] + playAgainButton[3]/2) {
+
+    return true;
+  }
+  return false;
+}
+
+
+
+int getStartButtonsClicked() {
   for (int i = 0; i < BUTTON_COUNT; i++) {
     //Check if mouse click within button boundaries
     if (mouseX >= buttonX[i] - buttonW[i]/2 &&
@@ -93,6 +113,8 @@ int getButtonClicked() {
       mouseY >= buttonY[i] - buttonH[i]/2 &&
       mouseY <= buttonY[i] + buttonH[i]/2) {
       //return which button is clicked
+
+      println(i);
       return i;
     }
   }
@@ -101,7 +123,7 @@ int getButtonClicked() {
 }
 
 void selectOptions() {
-  int pressedButton = getButtonClicked();
+  int pressedButton = getStartButtonsClicked();
 
   switch(pressedButton) {
   case 0:
