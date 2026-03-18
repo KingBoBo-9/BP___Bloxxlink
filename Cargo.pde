@@ -1,7 +1,7 @@
 boolean pullCargoMode = false;
 boolean gameOver = false;
 
-int cargoCount = 5;
+int cargoCount = 2;
 int[] cargoCol = new int[cargoCount];
 int[] cargoRow = new int[cargoCount];
 int[] cargoColCopy = new int[cargoCount];
@@ -128,6 +128,7 @@ boolean gameIsOver() {
   if ((isCargoConnectedRow() == true && isCargoOnSameRow() == true) || (isCargoConnectedCol() == true && isCargoOnSameCol() == true)) {
     //TO-DO: Delete
     println("GAME WON");
+    startGame = false;
     return gameOver = true;
   } else {
     print("gameOver = " + gameOver);

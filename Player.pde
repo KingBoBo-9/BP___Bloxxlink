@@ -30,8 +30,8 @@ void drawPlayer() {
 }
 
 void initPlayer() {
-  playerRow = int(random(getGridColumns()));
-  playerCol = int(random(getGridRows()));
+  playerCol = int(random(getGridColumns()));
+  playerRow = int(random(getGridRows()));
 
   while (isTileBlocked(playerRow, playerCol)) {
     playerCol = int(random(getGridColumns()));

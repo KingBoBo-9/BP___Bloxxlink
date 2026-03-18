@@ -6,6 +6,14 @@ int[] buttonW = new int[BUTTON_COUNT];
 int[] buttonH = new int[BUTTON_COUNT];
 String[] buttonText = new String[BUTTON_COUNT];
 
+void initEndScreenButtons() {
+  buttonX[7] = width/2 - width / 6;
+  buttonY[7] = height/3;
+  buttonW[7] = 100;
+  buttonH[7] = 60;
+  buttonText[7] = "Play Again";
+}
+
 void initStartScreenButtons() {
   //to-do for loop here
   buttonX[0] = width/2 - width / 6;
@@ -62,6 +70,19 @@ void drawStartButtons() {
     textAlign(CENTER, CENTER);
     text(buttonText[i], buttonX[i], buttonY[i]);
   }
+}
+
+void drawEndButtons() {
+  int i = 6;
+
+  fill(#F59E34);
+  rectMode(CENTER);
+  rect(buttonX[i], buttonY[i], buttonW[i], buttonH[i]);
+
+  fill(0);
+  textSize(15);
+  textAlign(CENTER, CENTER);
+  text(buttonText[i], buttonX[i], buttonY[i]);
 }
 
 int getButtonClicked() {

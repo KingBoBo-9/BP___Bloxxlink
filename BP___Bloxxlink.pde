@@ -1,6 +1,7 @@
 boolean newGame = true;
 boolean startGame = false;
 
+
 void setup() {
   size(800, 700);
   // fullScreen();
@@ -10,25 +11,24 @@ void setup() {
 }
 
 void draw() {
-  if (startGame == false) {
-    showStartScreen();
-    drawStartButtons();
-  } else if (startGame == true) {
-    background(100);
-    drawGrid();
-    drawScore();
-    drawCargo();
-    drawPlayer();
-    drawObstacle();
-  }
-  // if (newGame == true) {
+  if (gameOver == true) {
+    showEndScreen();
+  } else if (game)
 
-  // } else if (gameOver == true) {
-  // showEndScreen();
-  // drawButton(width / 2, height - width / 6, width / 6, height /15);
-  // } else {
-  //
-  // }
+
+    if (startGame == false) {
+      showStartScreen();
+      drawStartButtons();
+    } else if (startGame == true) {
+      background(100);
+      drawGrid();
+      drawScore();
+      drawCargo();
+      drawPlayer();
+      drawObstacle();
+    } else if (gameOver == true) {
+      showEndScreen();
+    }
 }
 
 void keyPressed() {
