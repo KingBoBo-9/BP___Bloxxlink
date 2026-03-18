@@ -7,6 +7,12 @@ int[] cargoRow = new int[cargoCount];
 int[] cargoColCopy = new int[cargoCount];
 int[] cargoRowCopy = new int[cargoCount];
 
+void initCargoArrays (int cargoCount) {
+  cargoCol = new int[cargoCount];
+  cargoRow = new int[cargoCount];
+  cargoColCopy = new int[cargoCount];
+  cargoRowCopy = new int[cargoCount];
+}
 
 //Set initial positions of all cargo
 void initCargoes() {

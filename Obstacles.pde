@@ -22,9 +22,9 @@ void drawObstacle() {
 
     obstacleX = calculateGridX() + obstacleCol[i] * getCellSize();
     obstacleY = calculateGridY() + obstacleRow[i] * getCellSize();
-    // stroke(255, 0, 0);
-    fill(#32a8a8);
-    // fill(0, 0, 255, 0);
+    noFill();
+    stroke(255, 0, 0);
+    // fill(#32a8a8);
     square(obstacleX - getCellSize(), obstacleY - getCellSize(), 3 * getCellSize());
 
     rectMode(CORNER);
@@ -35,11 +35,8 @@ void drawObstacle() {
   }
 }
 
-boolean isObstacle(int col, int row) {
-  for (int i = 0; i < numberOfObstacles; i++) {
-    if (obstacleCol[i] == col && obstacleRow[i] == row) {
-      return true;
-    }
+    stroke(0);
+    // fill(255, 0, 0);
   }
   return false;
 }
