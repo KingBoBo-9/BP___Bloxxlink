@@ -1,5 +1,4 @@
-boolean newGame = true;
-boolean startGame = false;
+int gameState = 0;
 
 
 void setup() {
@@ -11,24 +10,19 @@ void setup() {
 }
 
 void draw() {
-  if (gameOver == true) {
+  if (gameState == 0) { //show start screen
+    showStartScreen();
+    drawStartButtons();
+  } else if (gameState == 1) { //show play screen
+    background(100);
+    drawGrid();
+    drawScore();
+    drawCargo();
+    drawPlayer();
+    drawObstacle();
+  } else if (gameState == 2) { //show end screen
     showEndScreen();
-  } else if (game)
-
-
-    if (startGame == false) {
-      showStartScreen();
-      drawStartButtons();
-    } else if (startGame == true) {
-      background(100);
-      drawGrid();
-      drawScore();
-      drawCargo();
-      drawPlayer();
-      drawObstacle();
-    } else if (gameOver == true) {
-      showEndScreen();
-    }
+  }
 }
 
 void keyPressed() {

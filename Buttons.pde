@@ -127,7 +127,7 @@ void selectOptions() {
     initObstacles();
     initCargoes();
     initPlayer();
-    startGame = true;
+    gameState = 1;
     break;
   }
 }
