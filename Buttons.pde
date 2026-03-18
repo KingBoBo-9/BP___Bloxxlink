@@ -7,8 +7,7 @@ int[] buttonH = new int[BUTTON_COUNT];
 String[] buttonText = new String[BUTTON_COUNT];
 
 void initStartScreenButtons() {
-
-
+  //to-do for loop here
   buttonX[0] = width/2 - width / 6;
   buttonY[0] = height/3;
   buttonW[0] = 100;
@@ -50,4 +49,63 @@ void initStartScreenButtons() {
   buttonW[6] = 100;
   buttonH[6] = 60;
   buttonText[6] = "Start";
+}
+
+void drawStartButtons() {
+  for (int i = 0; i < BUTTON_COUNT; i++) {
+    fill(#F59E34);
+    rectMode(CENTER);
+    rect(buttonX[i], buttonY[i], buttonW[i], buttonH[i]);
+
+    fill(0);
+    textSize(15);
+    textAlign(CENTER, CENTER);
+    text(buttonText[i], buttonX[i], buttonY[i]);
+  }
+}
+
+int getButtonClicked() {
+  for (int i = 0; i < BUTTON_COUNT; i++) {
+    //Check if mouse click within button boundaries
+    if (mouseX >= buttonX[i] - buttonW[i]/2 &&
+      mouseX <= buttonX[i] + buttonW[i]/2 &&
+      mouseY >= buttonY[i] - buttonH[i]/2 &&
+      mouseY <= buttonY[i] + buttonH[i]/2) {
+      //return which button is clicked
+      return i;
+    }
+  }
+  //no button is clicked
+  return -1;
+}
+
+void selectOptions() {
+  int pressedButton = getButtonClicked();
+
+  switch(pressedButton) {
+  case 0:
+    cargoCount = 5;
+    break;
+  case 1:
+    cargoCount = 10;
+    break;
+  case 2:
+    cargoCount = 15;
+    break;
+  case 3:
+    numberOfObstacles = 5;
+    break;
+  case 4:
+    numberOfObstacles = 10;
+    break;
+  case 5:
+    numberOfObstacles = 15;
+    break;
+  case 6:
+    initCargoArrays(cargoCount);
+    initCargoes();
+    initObstacles();
+    startGame = true;
+    break;
+  }
 }

@@ -15,15 +15,17 @@ void drawObstacle() {
 
     obstacleX = calculateGridX() + obstacleCol[i] * getCellSize();
     obstacleY = calculateGridY() + obstacleRow[i] * getCellSize();
-
-    fill(#32a8a8);
+    noFill();
+    stroke(255, 0, 0);
+    // fill(#32a8a8);
     square(obstacleX - getCellSize(), obstacleY - getCellSize(), 3 * getCellSize());
 
     rectMode(CORNER);
     fill(#62ade3);
     square(obstacleX, obstacleY, getCellSize());
 
-    fill(255, 0, 0);
+    stroke(0);
+    // fill(255, 0, 0);
   }
 }
 
