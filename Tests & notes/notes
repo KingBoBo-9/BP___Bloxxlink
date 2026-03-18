@@ -1,9 +1,8 @@
 Questions:
 
 To do:
-    - adjust spawn so things can't spawn on same tile 
     - make cargo collision at edge for player 
-    - start en eindscherm 
+    - start- and eindscherm 
     
 
 N.B.
@@ -32,7 +31,7 @@ REFACTOR:
 - ALLES
 - boolean names
 - EndScreen code (is van huiswerk opdracht)
-    - electric field 
+    - electric field is eigenljk gewoon een 3 bij 3 vierkant 
 
 
 De code maakt zelf zo veel mogelijk duidelijk wat het doet. 
@@ -70,6 +69,3 @@ Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet
 -- 9. check if pullCargoMode = true
 --         if true:
             
-
-//Determine which screen to show
-

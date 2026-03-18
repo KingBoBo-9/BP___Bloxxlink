@@ -19,6 +19,14 @@ void initCargoes() {
   for (int i = 0; i < cargoCount; i++) {
     cargoCol[i] = int(random(getGridColumns()));
     cargoRow[i] = int(random(getGridRows()));
+
+    while (isTileOccupiedByExistingCargo(cargoCol[i], cargoRow[i], i) ||
+      isObstacle(cargoCol[i], cargoRow[i]) ||
+      isInElectricField(cargoCol[i], cargoRow[i])||
+      cargoCol[i] == playerCol && cargoRow[i] == playerRow) {
+      cargoCol[i] = int(random(getGridColumns()));
+      cargoRow[i] = int(random(getGridRows()));
+    }
   }
 }
 
