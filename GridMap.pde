@@ -40,6 +40,7 @@ boolean isTileOccupied(int col, int row) {
     }
   }
 
+  //check obstacles
   for (int i = 0; i < numberOfObstacles; i++) {
     if (obstacleCol[i] == col && obstacleRow[i] == row) {
       return true;

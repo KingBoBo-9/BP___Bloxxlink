@@ -12,19 +12,19 @@ void initStartScreenButtons() {
   buttonY[0] = height/3;
   buttonW[0] = 100;
   buttonH[0] = 60;
-  buttonText[0] = "5 blocks";
+  buttonText[0] = "5 cargo";
 
   buttonX[1] = width/2;
   buttonY[1] = height/3;
   buttonW[1] = 100;
   buttonH[1] = 60;
-  buttonText[1] = "10 blocks";
+  buttonText[1] = "10 cargo";
 
   buttonX[2] = width/2 + width / 6;
   buttonY[2] = height/3;
   buttonW[2] = 100;
   buttonH[2] = 60;
-  buttonText[2] = "15 blocks";
+  buttonText[2] = "15 cargo";
 
   buttonX[3] = width/2 - width / 6;
   buttonY[3] = height/3 + width / 6;
@@ -36,13 +36,13 @@ void initStartScreenButtons() {
   buttonY[4] = height/3 + width / 6;
   buttonW[4] = 100;
   buttonH[4] = 60;
-  buttonText[4] = "10 obstacles";
+  buttonText[4] = "7 obstacles";
 
   buttonX[5] = width/2 + width / 6;
   buttonY[5] = height/3 + width / 6;
   buttonW[5] = 100;
   buttonH[5] = 60;
-  buttonText[5] = "15 obstacles";
+  buttonText[5] = "9 obstacles";
 
   buttonX[6] = width/2;
   buttonY[6] = height/2 + width / 5;
@@ -96,15 +96,16 @@ void selectOptions() {
     numberOfObstacles = 5;
     break;
   case 4:
-    numberOfObstacles = 10;
+    numberOfObstacles = 7;
     break;
   case 5:
-    numberOfObstacles = 15;
+    numberOfObstacles = 9;
     break;
   case 6:
     initCargoArrays(cargoCount);
-    initCargoes();
     initObstacles();
+    initCargoes();
+    initPlayer();
     startGame = true;
     break;
   }

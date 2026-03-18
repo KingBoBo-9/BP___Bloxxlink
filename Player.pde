@@ -29,6 +29,15 @@ void drawPlayer() {
   circle(playerX, playerY, getCellSize());
 }
 
+void initPlayer() {
+  playerRow = int(random(getGridColumns()));
+  playerCol = int(random(getGridRows()));
+
+  while (isTileBlocked(playerRow, playerCol)) {
+    playerCol = int(random(getGridColumns()));
+    playerRow = int(random(getGridRows()));
+  }
+}
 //Transforms keyboard input to direction columns
 int changeInputToDirectionCol() {
   int directionCol = 0;
@@ -113,4 +122,3 @@ boolean isCargoOnPlayerTarget(int playerTargetCol, int playerTargetRow) {
   }
   return false;
 }
-

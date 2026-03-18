@@ -11,8 +11,6 @@ void setup() {
 
 void draw() {
   if (startGame == false) {
-
-
     showStartScreen();
     drawStartButtons();
   } else if (startGame == true) {

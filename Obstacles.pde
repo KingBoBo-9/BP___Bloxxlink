@@ -31,12 +31,15 @@ void drawObstacle() {
     fill(#62ade3);
     // fill(0, 0, 255, 0);
     square(obstacleX, obstacleY, getCellSize());
-    // stroke(0);
+    stroke(0);
   }
 }
 
-    stroke(0);
-    // fill(255, 0, 0);
+boolean isObstacle(int col, int row) {
+  for (int i = 0; i < numberOfObstacles; i++) {
+    if (obstacleCol[i] == col && obstacleRow[i] == row) {
+      return true;
+    }
   }
   return false;
 }
