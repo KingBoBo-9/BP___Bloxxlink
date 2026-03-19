@@ -118,3 +118,12 @@ boolean isInElectricFieldOfOlderObstacle(int col, int row, int currentIndex) {
   }
   return false;
 }
+
+boolean isTileOccupiedByExistingObstacle(int col, int row, int currentIndex) {
+  for (int i = 0; i < currentIndex; i++) {
+    if (obstacleCol[i] == col && obstacleRow[i] == row) {
+      return true;
+    }
+  }
+  return false;
+}

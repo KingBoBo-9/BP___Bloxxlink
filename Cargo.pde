@@ -198,6 +198,15 @@ boolean isTileValidForCargo(int cargoTargetCol, int cargoTargetRow) {
   return true;
 }
 
+boolean isTileOccupiedByExistingCargo(int col, int row, int currentIndex) {
+  for (int i = 0; i < currentIndex; i++) {
+    if (cargoCol[i] == col && cargoRow[i] == row) {
+      return true;
+    }
+  }
+  return false;
+}
+
 void moveCargoTo(int cargoIndex, int cargoTargetCol, int cargoTargetRow) {
   cargoCol[cargoIndex] = cargoTargetCol;
   cargoRow[cargoIndex] = cargoTargetRow;

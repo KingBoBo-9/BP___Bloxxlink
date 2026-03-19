@@ -31,23 +31,6 @@ void drawGrid() {
   }
 }
 
-boolean isTileOccupied(int col, int row) {
-  //check cargo
-  for (int i = 0; i < cargoCount; i++) {
-    if (cargoCol[i] == col && cargoRow[i] == row) {
-      return true;
-    }
-  }
-
-  //check obstacles
-  for (int i = 0; i < numberOfObstacles; i++) {
-    if (obstacleCol[i] == col && obstacleRow[i] == row) {
-      return true;
-    }
-  }
-  return false;
-}
-
 boolean isTileBlocked(int col, int row) {
   if (isTileOccupied(col, row)) {
     return true;
@@ -59,28 +42,22 @@ boolean isTileBlocked(int col, int row) {
   return false;
 }
 
-boolean isTileOccupiedByExistingCargo(int col, int row, int currentIndex) {
-  for (int i = 0; i < currentIndex; i++) {
+boolean isTileOccupied(int col, int row) {
+  //check for cargo
+  for (int i = 0; i < cargoCount; i++) {
     if (cargoCol[i] == col && cargoRow[i] == row) {
       return true;
     }
   }
-  return false;
-}
 
-
-boolean isTileOccupiedByExistingObstacle(int col, int row, int currentIndex) {
-  for (int i = 0; i < currentIndex; i++) {
+  //check for obstacles
+  for (int i = 0; i < numberOfObstacles; i++) {
     if (obstacleCol[i] == col && obstacleRow[i] == row) {
       return true;
     }
   }
   return false;
 }
-
-
-
-
 
 int calculateGridX() {
   return gridX = width / 2 - gridTotalWidth / 2;

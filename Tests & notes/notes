@@ -37,6 +37,10 @@ REFACTOR:
 De code maakt zelf zo veel mogelijk duidelijk wat het doet. 
 Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet duidelijk genoeg geschreven.
 
+
+canPlayerSpawnHere
+-
+
 isCargoConnected
 - check if all cargo on the same row/col
 - check if all cargo is connected
