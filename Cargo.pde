@@ -1,12 +1,13 @@
 boolean pullCargoMode = false;
-boolean gameOver = false;
 
 int cargoCount = 2;
+
 int[] cargoCol = new int[cargoCount];
 int[] cargoRow = new int[cargoCount];
 int[] cargoColCopy = new int[cargoCount];
 int[] cargoRowCopy = new int[cargoCount];
 
+//Sets length of arrays after number of cargoes is clicked in start menu
 void initCargoArrays (int cargoCount) {
   cargoCol = new int[cargoCount];
   cargoRow = new int[cargoCount];
@@ -21,9 +22,9 @@ void initCargoes() {
     cargoRow[i] = int(random(getGridRows()));
 
     while (isTileOccupiedByExistingCargo(cargoCol[i], cargoRow[i], i) ||
-      isObstacle(cargoCol[i], cargoRow[i]) ||
       isInElectricField(cargoCol[i], cargoRow[i])||
       cargoCol[i] == playerCol && cargoRow[i] == playerRow) {
+
       cargoCol[i] = int(random(getGridColumns()));
       cargoRow[i] = int(random(getGridRows()));
     }

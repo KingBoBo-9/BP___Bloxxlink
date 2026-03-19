@@ -7,15 +7,12 @@ int[] buttonH = new int[BUTTON_COUNT];
 String[] buttonText = new String[BUTTON_COUNT];
 int[] playAgainButton = new int [4];
 
-
 void initPlayAgainButton() {
   playAgainButton[0] = width/2;
   playAgainButton[1] = height/2 + width / 5;
   playAgainButton[2] = 100;
   playAgainButton[3] = 60;
 }
-
-
 
 void initStartScreenButtons() {
   for (int i = 0; i < BUTTON_COUNT; i++) {
@@ -65,6 +62,20 @@ void drawStartButtons() {
   }
 }
 
+int getStartButtonsClicked() {
+  for (int i = 0; i < BUTTON_COUNT; i++) {
+    //Check if mouse click within button boundaries
+    if (mouseX >= buttonX[i] - buttonW[i]/2 &&
+      mouseX <= buttonX[i] + buttonW[i]/2 &&
+      mouseY >= buttonY[i] - buttonH[i]/2 &&
+      mouseY <= buttonY[i] + buttonH[i]/2) {
+      //return which button is clicked
+      return i;
+    }
+  }
+  //no button is clicked
+  return -1;
+}
 
 void drawPlayAgainButton() {
   int buttonX = playAgainButton[0];
@@ -92,25 +103,6 @@ boolean playAgainButtonClicked() {
     return true;
   }
   return false;
-}
-
-
-
-int getStartButtonsClicked() {
-  for (int i = 0; i < BUTTON_COUNT; i++) {
-    //Check if mouse click within button boundaries
-    if (mouseX >= buttonX[i] - buttonW[i]/2 &&
-      mouseX <= buttonX[i] + buttonW[i]/2 &&
-      mouseY >= buttonY[i] - buttonH[i]/2 &&
-      mouseY <= buttonY[i] + buttonH[i]/2) {
-      //return which button is clicked
-
-      println(i);
-      return i;
-    }
-  }
-  //no button is clicked
-  return -1;
 }
 
 void selectOptions() {

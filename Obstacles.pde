@@ -35,15 +35,6 @@ void drawObstacle() {
   }
 }
 
-boolean isObstacle(int col, int row) {
-  for (int i = 0; i < numberOfObstacles; i++) {
-    if (obstacleCol[i] == col && obstacleRow[i] == row) {
-      return true;
-    }
-  }
-  return false;
-}
-
 boolean isInElectricField(int col, int row) {
   for (int i = 0; i < numberOfObstacles; i++) {
     //top left
