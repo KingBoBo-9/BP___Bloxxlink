@@ -22,11 +22,13 @@ void draw() {
 }
 
 void keyPressed() {
-  movePlayer();
-  moveCargo();
-  checkForCargo();
-  togglePullCargoMode();
-  gameIsWon();
+  if (gameState == 1) {
+    movePlayer();
+    moveCargo();
+    checkForCargo();
+    togglePullCargoMode();
+    gameIsWon();
+  }
 }
 
 void mousePressed() {
