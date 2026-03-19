@@ -1,4 +1,4 @@
-int obstacleCount = 3;
+int obstacleCount = 9;
 int obstacleX, obstacleY;
 int[] obstacleCol = new int[obstacleCount];
 int[] obstacleRow = new int[obstacleCount];

@@ -1,30 +1,23 @@
-Questions:
 
-To do:
+To-do:
     - make cargo collision at edge for player 
     - obstacles can spawn in other obstacle's field
     
-
 N.B.
 - Constanten!
 - Comments!
-- ARRAYS!
 - GETTERS EN SETTERS!!! 
+
 - vergeet niet om terug te zetten in processing
-- getters en setters bij die cargo thing
-- initCargo ramp
-- moet minimaal 1 array in zitten 
 - beoordeling SEB in brightspace 
-- overlap spawn van cargo / obstacle 
-- punt negen pull cargo note afmaken
-- setup en draw zo klein mogelijk houden
+
 -test modulen aanmaken Test_Robot of Test 
     - header van test heeft geen parameters 
     - testen voor methods met return values 
     - test modules komen niet terug in architectuur tekening
-- Op te leveren: het opleverdocument, 12.1 in reader reflectie op code kwaliteit 
-- code kwaliteit is beangrijk!!
 
+- Op te leveren: het opleverdocument, 12.1 in reader reflectie op code kwaliteit 
+- code kwaliteit is belangrijk!!
 
 
 REFACTOR:

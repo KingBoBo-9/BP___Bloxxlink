@@ -21,10 +21,13 @@ void movePlayer() {
   pullCargoTo(directionCol, directionRow);
 }
 
+//Set initial position of player
 void initPlayer() {
   playerCol = int(random(getGridColumns()));
   playerRow = int(random(getGridRows()));
 
+  //Check if selected Col and Row are occupied
+  //If occupied -> try new Col and Row
   while (isCellBlocked(playerRow, playerCol)) {
     playerCol = int(random(getGridColumns()));
     playerRow = int(random(getGridRows()));
@@ -82,11 +85,6 @@ int calculatePlayerTargetRow(int row, int directionRow) {
   return row + directionRow;
 }
 
-
-
-int calculateTargetRow(int row, int directionRow) {
-  return row + directionRow;
-}
 //Check if player's target is valid
 boolean isCellWalkable(int playerTargetCol, int playerTargetRow) {
   if (checkIfWithinGridBoundaries(playerTargetCol, playerTargetRow) == false) {
@@ -109,14 +107,4 @@ boolean checkIfWithinGridBoundaries(int col, int row) {
 void movePlayerTo(int playerTargetCol, int playerTargetRow) {
   playerCol = playerTargetCol;
   playerRow = playerTargetRow;
-}
-
-boolean isCargoOnPlayerTarget(int playerTargetCol, int playerTargetRow) {
-  for (int i = 0; i < cargoCount; i++) {
-    if (playerTargetCol == cargoCol[i] && playerTargetRow == cargoRow[i]) {
-      println("There's cargo there");
-      return true;
-    }
-  }
-  return false;
 }
