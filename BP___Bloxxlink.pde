@@ -10,22 +10,16 @@ void setup() {
 }
 
 void draw() {
-  if (gameState == 0) { //show start screen
+  if (gameState == 0) {             //show start screen
     showStartScreen();
     drawStartButtons();
-  } else if (gameState == 1) { //show play screen
-    background(100);
-    drawGrid();
-    drawScore();
-    drawCargo();
-    drawPlayer();
-    drawObstacle();
-  } else if (gameState == 2) { //show end screen
+  } else if (gameState == 1) {      //show play screen
+    drawGame();
+  } else if (gameState == 2) {      //show end screen
     showEndScreen();
     drawPlayAgainButton();
   }
 }
-
 
 void keyPressed() {
   movePlayer();
@@ -43,14 +37,6 @@ void mousePressed() {
       startNewGame();
     }
   }
-
-
-
-  //end screen button
-  // if (buttonIsPressed()) {
-  //
-  // startNewGame();
-  // }
 }
 
 void startNewGame() {
@@ -59,4 +45,13 @@ void startNewGame() {
   initObstacles();
   drawPlayer();
   setPlayer1Score(1000);
+}
+
+void drawGame() {
+  background(100);
+  drawGrid();
+  drawScore();
+  drawCargo();
+  drawPlayer();
+  drawObstacle();
 }
