@@ -1,16 +1,20 @@
-int numberOfObstacles = 12;
+int obstacleCount = 15;
 int obstacleX, obstacleY;
-int[] obstacleCol = new int[numberOfObstacles];
-int[] obstacleRow = new int[numberOfObstacles];
+int[] obstacleCol = new int[obstacleCount];
+int[] obstacleRow = new int[obstacleCount];
 
+//Set initial positions of all obstacles
 void initObstacles() {
-  for (int i = 0; i < numberOfObstacles; i++) {
+  for (int i = 0; i < obstacleCount; i++) {
     obstacleCol[i] = int(random(getGridColumns()));
     obstacleRow[i] = int(random(getGridRows()));
 
+    //Check if selected Col and Row are occupied
+    //If occupied -> try new Col and Row
     while (isTileOccupiedByExistingObstacle(obstacleCol[i], obstacleRow[i], i) ||
-      isInElectricFieldOfOlderObstacle(obstacleCol[i], obstacleRow[i], i) ||
+      isInElectricFieldOfExistingObstacle(obstacleCol[i], obstacleRow[i], i) ||
       obstacleRow[i] == playerRow && obstacleCol[i] == playerRow ) {
+
       obstacleCol[i] = int(random(getGridColumns()));
       obstacleRow[i] = int(random(getGridRows()));
     }
@@ -18,7 +22,7 @@ void initObstacles() {
 }
 
 void drawObstacle() {
-  for (int i = 0; i < numberOfObstacles; i++) {
+  for (int i = 0; i < obstacleCount; i++) {
 
     obstacleX = calculateGridX() + obstacleCol[i] * getCellSize();
     obstacleY = calculateGridY() + obstacleRow[i] * getCellSize();
@@ -36,7 +40,7 @@ void drawObstacle() {
 }
 
 boolean isInElectricField(int col, int row) {
-  for (int i = 0; i < numberOfObstacles; i++) {
+  for (int i = 0; i < obstacleCount; i++) {
     //top left
     if (col == obstacleCol[i] -1 && row == obstacleRow[i] -1) {
       return true;
@@ -77,7 +81,7 @@ boolean isInElectricField(int col, int row) {
   return false;
 }
 
-boolean isInElectricFieldOfOlderObstacle(int col, int row, int currentIndex) {
+boolean isInElectricFieldOfExistingObstacle(int col, int row, int currentIndex) {
   for (int i = 0; i < currentIndex; i++) {
     //top left
     if (col == obstacleCol[i] -1 && row == obstacleRow[i] -1) {

@@ -14,7 +14,7 @@ void initCargoes() {
     cargoRow[i] = int(random(getGridRows()));
 
     //Check if selected Col and Row are occupied
-    //If occupied -> try a new Col and Row
+    //If occupied -> try new Col and Row
     while (isTileOccupiedByExistingCargo(cargoCol[i], cargoRow[i], i) ||
       isInElectricField(cargoCol[i], cargoRow[i])||
       cargoCol[i] == playerCol && cargoRow[i] == playerRow) {

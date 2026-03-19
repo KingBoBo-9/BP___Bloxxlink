@@ -119,13 +119,13 @@ void selectOptions() {
     cargoCount = 15;
     break;
   case 3:
-    numberOfObstacles = 5;
+    obstacleCount = 5;
     break;
   case 4:
-    numberOfObstacles = 7;
+    obstacleCount = 7;
     break;
   case 5:
-    numberOfObstacles = 9;
+    obstacleCount = 9;
     break;
   case 6:
     initCargoArrays(cargoCount);
