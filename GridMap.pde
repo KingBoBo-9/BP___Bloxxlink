@@ -1,11 +1,11 @@
-int gridColumns = 20;
-int gridRows = 16;
-int cellSize = 30;
+final int GRID_COLUMNS = 20;
+final int GRID_ROWS = 16;
+final int CELL_SIZE = 30;
 
-int gridTotalWidth = gridColumns * cellSize;
-int gridTotalHeight = gridRows * cellSize;
+int gridTotalWidth = GRID_COLUMNS * CELL_SIZE;
+int gridTotalHeight = GRID_ROWS * CELL_SIZE;
 
-int gridX, gridY, gridXStart, gridYStart;
+int gridX, gridY;
 
 
 //Draw the game Map
@@ -19,18 +19,17 @@ void drawGrid() {
   gridX = calculateGridX();
   gridY = calculateGridY();
 
-  for (int i = 0; i < gridColumns; i++) {
-    for (int j = 0; j < gridRows; j++) {
+  for (int i = 0; i < GRID_COLUMNS; i++) {
+    for (int j = 0; j < GRID_ROWS; j++) {
       fill(255);
       rectMode(CORNER);
-      square(gridX, gridY, cellSize);
-      gridY += cellSize;
+      square(gridX, gridY, CELL_SIZE);
+      gridY += CELL_SIZE;
     }
-    gridX += cellSize;
+    gridX += CELL_SIZE;
     gridY = height / 2 - gridTotalHeight /2;
   }
 }
-
 
 boolean isTileOccupied(int col, int row) {
   //check cargo
@@ -92,13 +91,13 @@ int calculateGridY() {
 }
 
 int getCellSize() {
-  return cellSize;
+  return CELL_SIZE;
 }
 
 int getGridColumns() {
-  return gridColumns;
+  return GRID_COLUMNS;
 }
 
 int getGridRows() {
-  return gridRows;
+  return GRID_ROWS;
 }

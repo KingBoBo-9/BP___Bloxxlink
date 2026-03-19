@@ -101,7 +101,7 @@ boolean isTileWalkable(int playerTargetCol, int playerTargetRow) {
 }
 
 boolean checkIfWithinGridBoundaries(int col, int row) {
-  if (col < 0 || col > gridColumns -1 || row < 0 || row > gridRows -1) {
+  if (col < 0 || col > GRID_COLUMNS -1 || row < 0 || row > GRID_ROWS -1) {
     return false;
   } else {
     return true;

@@ -189,7 +189,7 @@ boolean isTileValidForCargo(int cargoTargetCol, int cargoTargetRow) {
   for (int i = 0; i < cargoCount; i++) {
     if (cargoTargetCol == cargoCol[i] && cargoTargetRow == cargoRow[i]) {
       return false;
-    } else if (cargoTargetCol < 0 || cargoTargetCol > gridColumns - 1 || cargoTargetRow < 0 || cargoTargetRow > gridRows - 1) {
+    } else if (cargoTargetCol < 0 || cargoTargetCol > GRID_COLUMNS - 1 || cargoTargetRow < 0 || cargoTargetRow > GRID_ROWS - 1) {
       return false;
     } else if (isInElectricField(cargoTargetCol, cargoTargetRow)) {
       return false;
