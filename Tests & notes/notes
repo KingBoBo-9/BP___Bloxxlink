@@ -2,7 +2,7 @@ Questions:
 
 To do:
     - make cargo collision at edge for player 
-    - start- and eindscherm 
+    - obstacles can spawn in other obstacle's field
     
 
 N.B.
@@ -38,12 +38,30 @@ De code maakt zelf zo veel mogelijk duidelijk wat het doet.
 Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet duidelijk genoeg geschreven.
 
 
-canPlayerSpawnHere
--
+
+
+
+
+
+movePlayer()
+1. richting omzetten naar directionCol / Row ✅
+2. player target berekenen ✅
+3. grid grenzen checken ✅
+4. check if cargo ✅
+    if cargo: ✅
+        5. bereken cargo target ✅
+        5.1 check of cargo op cargo target ✅
+        6.  cargo grid grenzen checken ✅
+        7. cargo verplaatsen ✅
+8. speler verplaatsen ✅
+9. check if pullCargoMode = true
+        if true:
+
 
 isCargoConnected
 - check if all cargo on the same row/col
 - check if all cargo is connected
+
 
 movePlayer 2.0
 - calculate playerTarget
@@ -61,17 +79,5 @@ movePlayer 2.0
 - check pullCargoMode?
 
 
--- movePlayer()
--- 1. richting omzetten naar directionCol / Row ✅
--- 2. player target berekenen ✅
--- 3. grid grenzen checken ✅
--- 4. check if cargo ✅
---     if cargo: ✅
---         5. bereken cargo target ✅
---         5.1 check of cargo op cargo target ✅
---         6.  cargo grid grenzen checken ✅
---         7. cargo verplaatsen ✅
--- 8. speler verplaatsen ✅
--- 9. check if pullCargoMode = true
---         if true:
-            
+Refactor isInElectricFieldOfExistingObstacle:
+
