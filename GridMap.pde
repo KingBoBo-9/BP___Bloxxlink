@@ -31,8 +31,8 @@ void drawGrid() {
   }
 }
 
-boolean isTileBlocked(int col, int row) {
-  if (isTileOccupied(col, row)) {
+boolean isCellBlocked(int col, int row) {
+  if (isCellOccupied(col, row)) {
     return true;
   }
 
@@ -42,7 +42,7 @@ boolean isTileBlocked(int col, int row) {
   return false;
 }
 
-boolean isTileOccupied(int col, int row) {
+boolean isCellOccupied(int col, int row) {
   //check for cargo
   for (int i = 0; i < cargoCount; i++) {
     if (cargoCol[i] == col && cargoRow[i] == row) {

@@ -15,7 +15,7 @@ void initCargoes() {
 
     //Check if selected Col and Row are occupied
     //If occupied -> try new Col and Row
-    while (isTileOccupiedByExistingCargo(cargoCol[i], cargoRow[i], i) ||
+    while (isCellOccupiedByExistingCargo(cargoCol[i], cargoRow[i], i) ||
       isInElectricField(cargoCol[i], cargoRow[i])||
       cargoCol[i] == playerCol && cargoRow[i] == playerRow) {
 
@@ -152,7 +152,7 @@ void moveCargo() {
   int cargoTargetRow = calculateCargoTargetRow(cargoIndex, changeInputToDirectionRow());
   int cargoTargetCol = calculateCargoTargetCol(cargoIndex, changeInputToDirectionCol());
 
-  if (isTileValidForCargo(cargoTargetCol, cargoTargetRow)) {
+  if (isCellValidForCargo(cargoTargetCol, cargoTargetRow)) {
     moveCargoTo(cargoIndex, cargoTargetCol, cargoTargetRow);
   }
 }
@@ -181,7 +181,7 @@ int calculateCargoTargetCol(int cargoIndex, int directionCol) {
   }
   return 0;
 }
-boolean isTileValidForCargo(int cargoTargetCol, int cargoTargetRow) {
+boolean isCellValidForCargo(int cargoTargetCol, int cargoTargetRow) {
   // check if there's cargo at cargoTarget
   // Then check if cargo moves within grid
   // Finally check if cargo moves into obstacle field
@@ -198,7 +198,7 @@ boolean isTileValidForCargo(int cargoTargetCol, int cargoTargetRow) {
   return true;
 }
 
-boolean isTileOccupiedByExistingCargo(int col, int row, int currentIndex) {
+boolean isCellOccupiedByExistingCargo(int col, int row, int currentIndex) {
   for (int i = 0; i < currentIndex; i++) {
     if (cargoCol[i] == col && cargoRow[i] == row) {
       return true;

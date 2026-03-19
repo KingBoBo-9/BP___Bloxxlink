@@ -14,7 +14,7 @@ void movePlayer() {
   playerTargetCol = calculatePlayerTargetCol(directionCol);
   playerTargetRow = calculatePlayerTargetRow(directionRow);
 
-  if (isTileWalkable(playerTargetCol, playerTargetRow)) {
+  if (isCellWalkable(playerTargetCol, playerTargetRow)) {
     movePlayerTo(playerTargetCol, playerTargetRow);
     updateScore();
   }
@@ -33,7 +33,7 @@ void initPlayer() {
   playerCol = int(random(getGridColumns()));
   playerRow = int(random(getGridRows()));
 
-  while (isTileBlocked(playerRow, playerCol)) {
+  while (isCellBlocked(playerRow, playerCol)) {
     playerCol = int(random(getGridColumns()));
     playerRow = int(random(getGridRows()));
   }
@@ -90,7 +90,7 @@ int calculateTargetRow(int row, int directionRow) {
   return row + directionRow;
 }
 //Check if player's target is valid
-boolean isTileWalkable(int playerTargetCol, int playerTargetRow) {
+boolean isCellWalkable(int playerTargetCol, int playerTargetRow) {
   if (checkIfWithinGridBoundaries(playerTargetCol, playerTargetRow) == false) {
     return false;
   } else if (isInElectricField(playerTargetCol, playerTargetRow)) {

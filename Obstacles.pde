@@ -11,7 +11,7 @@ void initObstacles() {
 
     //Check if selected Col and Row are occupied
     //If occupied -> try new Col and Row
-    while (isTileOccupiedByExistingObstacle(obstacleCol[i], obstacleRow[i], i) ||
+    while (isCellOccupiedByExistingObstacle(obstacleCol[i], obstacleRow[i], i) ||
       isInElectricFieldOfExistingObstacle(obstacleCol[i], obstacleRow[i], i) ||
       obstacleRow[i] == playerRow && obstacleCol[i] == playerRow ) {
 
@@ -55,8 +55,7 @@ boolean isInElectricFieldOfExistingObstacle(int col, int row, int currentIndex) 
   return false;
 }
 
-
-boolean isTileOccupiedByExistingObstacle(int col, int row, int currentIndex) {
+boolean isCellOccupiedByExistingObstacle(int col, int row, int currentIndex) {
   for (int i = 0; i < currentIndex; i++) {
     if (obstacleCol[i] == col && obstacleRow[i] == row) {
       return true;
