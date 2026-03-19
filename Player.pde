@@ -7,26 +7,18 @@ void movePlayer() {
 
   int directionCol = changeInputToDirectionCol();
   int directionRow = changeInputToDirectionRow();
+
   oldPlayerCol = playerCol;
   oldPlayerRow = playerRow;
 
-
-  playerTargetCol = calculatePlayerTargetCol(directionCol);
-  playerTargetRow = calculatePlayerTargetRow(directionRow);
+  playerTargetCol = calculatePlayerTargetCol(playerCol, directionCol);
+  playerTargetRow = calculatePlayerTargetRow(playerRow, directionRow);
 
   if (isCellWalkable(playerTargetCol, playerTargetRow)) {
     movePlayerTo(playerTargetCol, playerTargetRow);
     updateScore();
   }
   pullCargoTo(directionCol, directionRow);
-}
-
-void drawPlayer() {
-  int playerX = calculateGridX() + playerCol * getCellSize();
-  int playerY = calculateGridY() + playerRow * getCellSize();
-  fill(#FCB824);
-  ellipseMode(CORNER);
-  circle(playerX, playerY, getCellSize());
 }
 
 void initPlayer() {
@@ -38,6 +30,16 @@ void initPlayer() {
     playerRow = int(random(getGridRows()));
   }
 }
+
+void drawPlayer() {
+  int playerX = calculateGridX() + playerCol * getCellSize();
+  int playerY = calculateGridY() + playerRow * getCellSize();
+
+  fill(#FCB824);
+  ellipseMode(CORNER);
+  circle(playerX, playerY, getCellSize());
+}
+
 //Transforms keyboard input to direction columns
 int changeInputToDirectionCol() {
   int directionCol = 0;
@@ -72,19 +74,15 @@ int changeInputToDirectionRow() {
   return directionRow;
 }
 
-int calculatePlayerTargetCol(int directionCol) {
-  int playerTargetCol = calculateTargetCol(playerCol, directionCol);
-  return playerTargetCol;
-}
-
-int calculatePlayerTargetRow(int directionRow) {
-  int playerTargetRow = calculateTargetRow(playerRow, directionRow);
-  return playerTargetRow;
-}
-
-int calculateTargetCol(int col, int directionCol) {
+int calculatePlayerTargetCol(int col, int directionCol) {
   return col + directionCol;
 }
+
+int calculatePlayerTargetRow(int row, int directionRow) {
+  return row + directionRow;
+}
+
+
 
 int calculateTargetRow(int row, int directionRow) {
   return row + directionRow;
