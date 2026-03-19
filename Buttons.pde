@@ -18,56 +18,38 @@ void initPlayAgainButton() {
 
 
 void initStartScreenButtons() {
-  //to-do for loop here
-
   for (int i = 0; i < BUTTON_COUNT; i++) {
     buttonW[i] = 100;
     buttonH[i] = 60;
   }
 
+  buttonX[0] = width/2 - width / 6;
+  buttonY[0] = height/3;
+  buttonText[0] = "5 cargo";
 
+  buttonX[1] = width/2;
+  buttonY[1] = height/3;
+  buttonText[1] = "10 cargo";
 
-  // buttonX[0] = width/2 - width / 6;
-  // buttonY[0] = height/3;
-  // buttonW[0] = 100;
-  // buttonH[0] = 60;
-  // buttonText[0] = "5 cargo";
+  buttonX[2] = width/2 + width / 6;
+  buttonY[2] = height/3;
+  buttonText[2] = "15 cargo";
 
-  // buttonX[1] = width/2;
-  // buttonY[1] = height/3;
-  // buttonW[1] = 100;
-  // buttonH[1] = 60;
-  // buttonText[1] = "10 cargo";
+  buttonX[3] = width/2 - width / 6;
+  buttonY[3] = height/3 + width / 6;
+  buttonText[3] = "5 obstacles";
 
-  // buttonX[2] = width/2 + width / 6;
-  // buttonY[2] = height/3;
-  // buttonW[2] = 100;
-  // buttonH[2] = 60;
-  // buttonText[2] = "15 cargo";
+  buttonX[4] = width/2;
+  buttonY[4] = height/3 + width / 6;
+  buttonText[4] = "7 obstacles";
 
-  // buttonX[3] = width/2 - width / 6;
-  // buttonY[3] = height/3 + width / 6;
-  // buttonW[3] = 100;
-  // buttonH[3] = 60;
-  // buttonText[3] = "5 obstacles";
+  buttonX[5] = width/2 + width / 6;
+  buttonY[5] = height/3 + width / 6;
+  buttonText[5] = "9 obstacles";
 
-  // buttonX[4] = width/2;
-  // buttonY[4] = height/3 + width / 6;
-  // buttonW[4] = 100;
-  // buttonH[4] = 60;
-  // buttonText[4] = "7 obstacles";
-
-  // buttonX[5] = width/2 + width / 6;
-  // buttonY[5] = height/3 + width / 6;
-  // buttonW[5] = 100;
-  // buttonH[5] = 60;
-  // buttonText[5] = "9 obstacles";
-
-  // buttonX[6] = width/2;
-  // buttonY[6] = height/2 + width / 5;
-  // buttonW[6] = 100;
-  // buttonH[6] = 60;
-  // buttonText[6] = "Start";
+  buttonX[6] = width/2;
+  buttonY[6] = height/2 + width / 5;
+  buttonText[6] = "Start";
 }
 
 void drawStartButtons() {
