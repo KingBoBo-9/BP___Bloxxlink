@@ -7,20 +7,14 @@ int[] cargoRow = new int[cargoCount];
 int[] cargoColCopy = new int[cargoCount];
 int[] cargoRowCopy = new int[cargoCount];
 
-//Sets length of arrays after number of cargoes is clicked in start menu
-void initCargoArrays (int cargoCount) {
-  cargoCol = new int[cargoCount];
-  cargoRow = new int[cargoCount];
-  cargoColCopy = new int[cargoCount];
-  cargoRowCopy = new int[cargoCount];
-}
-
 //Set initial positions of all cargo
 void initCargoes() {
   for (int i = 0; i < cargoCount; i++) {
     cargoCol[i] = int(random(getGridColumns()));
     cargoRow[i] = int(random(getGridRows()));
 
+    //Check if selected Col and Row are occupied
+    //If occupied -> try a new Col and Row
     while (isTileOccupiedByExistingCargo(cargoCol[i], cargoRow[i], i) ||
       isInElectricField(cargoCol[i], cargoRow[i])||
       cargoCol[i] == playerCol && cargoRow[i] == playerRow) {
@@ -29,6 +23,14 @@ void initCargoes() {
       cargoRow[i] = int(random(getGridRows()));
     }
   }
+}
+
+//Sets length of arrays after number of cargoes is clicked in start menu
+void initCargoArrays (int cargoCount) {
+  cargoCol = new int[cargoCount];
+  cargoRow = new int[cargoCount];
+  cargoColCopy = new int[cargoCount];
+  cargoRowCopy = new int[cargoCount];
 }
 
 void drawCargo() {
@@ -42,7 +44,8 @@ void drawCargo() {
   }
 }
 
-//Check if cargo above, under, or next to
+//Bookmark1
+//Check if cargo above, under, or next to player
 boolean checkForCargo() {
   if (key == RETURN || key == ENTER) {
     for (int i = 0; i < cargoCount; i++) {
@@ -74,7 +77,7 @@ void togglePullCargoMode() {
   }
 }
 
-void sortCargoRowsAndCols() {
+void CopyAndSortArrays() {
   arrayCopy(cargoCol, cargoColCopy);
   cargoColCopy = sort(cargoColCopy);
 
@@ -92,20 +95,20 @@ boolean isCargoConnectedRow() {
   return true;
 }
 
-//Check if all cargo is on the same ROW
-boolean isCargoOnSameRow() {
-  for (int i = 1; i < cargoRow.length; i++) {
-    if (cargoRow[i] != cargoRow[0]) {
+//Check if all cargo is VERTICALLY connected
+boolean isCargoConnectedCol() {
+  for (int i = 0; i < cargoRowCopy.length - 1; i++) {
+    if (cargoRowCopy[i + 1] - cargoRowCopy[i] != 1) {
       return false;
     }
   }
   return true;
 }
 
-//Check if all cargo is VERTICALLY connected
-boolean isCargoConnectedCol() {
-  for (int i = 0; i < cargoRowCopy.length - 1; i++) {
-    if (cargoRowCopy[i + 1] - cargoRowCopy[i] != 1) {
+//Check if all cargo is on the same ROW
+boolean isCargoOnSameRow() {
+  for (int i = 1; i < cargoRow.length; i++) {
+    if (cargoRow[i] != cargoRow[0]) {
       return false;
     }
   }
@@ -124,10 +127,13 @@ boolean isCargoOnSameCol() {
 
 //Check if game win condition is met:
 int gameIsWon() {
-  sortCargoRowsAndCols();
+  CopyAndSortArrays();
 
-  if ((isCargoConnectedRow() == true && isCargoOnSameRow() == true) || (isCargoConnectedCol() == true && isCargoOnSameCol() == true)) {
-    //TO-DO: Delete
+  if ((isCargoConnectedRow() == true &&
+    isCargoOnSameRow() == true) ||
+    (isCargoConnectedCol() == true &&
+    isCargoOnSameCol() == true)) {
+
     return gameState = 2;
   } else {
     return gameState = 1;
@@ -135,7 +141,7 @@ int gameIsWon() {
 }
 
 
-//////////////               ///////////////               ///////////////               ///////////////               ///////////////
+//////////////               ///////////////               ///////////////               ///////////////               ///////////////               ///////////////               ///////////////
 void moveCargo() {
   int cargoIndex = getCargoIndex(playerTargetCol, playerTargetRow);
 

@@ -15,7 +15,7 @@ void draw() {
     drawStartButtons();
   } else if (gameState == 1) {      //show play screen
     drawGame();
-  } else if (gameState == 2) {      //show end screen
+  } else if (gameState == 2) {      //Game-Over: show end screen
     showEndScreen();
     drawPlayAgainButton();
   }
