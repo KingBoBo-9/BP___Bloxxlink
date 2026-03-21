@@ -132,7 +132,7 @@ void selectOptions() {
     initObstacles();
     initCargoes();
     initPlayer();
-    gameState = 1;
+    setGameState(1);
     break;
   }
 }

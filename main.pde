@@ -2,7 +2,6 @@ int gameState = 0;
 
 void setup() {
   size(800, 700);
-  // fullScreen();
 
   drawMap(width / 2, height / 2);
   initStartScreenButtons();
@@ -69,4 +68,8 @@ void showEndScreen() {
   textSize(width / 20);
   text("Winner: " + winner, width / 2, height / 2);
   text("Score: " + getPlayer1Score(), width / 2, height / 2 + height / 10);
+}
+
+void setGameState(int state) {
+  gameState = state;
 }
