@@ -1,3 +1,5 @@
+boolean runTests = false;
+
 int gameState = 0;
 
 void setup() {
@@ -6,6 +8,11 @@ void setup() {
   drawMap(width / 2, height / 2);
   initStartScreenButtons();
   initPlayAgainButton();
+
+  //For testing
+  if (runTests) {
+    ;
+  }
 }
 
 void draw() {
