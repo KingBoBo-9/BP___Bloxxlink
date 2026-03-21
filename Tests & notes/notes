@@ -2,6 +2,7 @@
 To-do:
     - make cargo collision at edge for player 
     - obstacles can spawn in other obstacle's field
+    - hide electric field 
     
 N.B.
 - Constanten!
