@@ -32,13 +32,8 @@ De code maakt zelf zo veel mogelijk duidelijk wat het doet.
 Als je moet uitleggen wat een simpele regel doet, is je code waarschijnlijk niet duidelijk genoeg geschreven.
 
 
-
-
-
-
-
 movePlayer()
-1. richting omzetten naar directionCol / Row ✅
+1. richting omzetten naar directionCol / Ro w ✅
 2. player target berekenen ✅
 3. grid grenzen checken ✅
 4. check if cargo ✅
