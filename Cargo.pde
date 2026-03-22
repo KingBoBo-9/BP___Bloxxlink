@@ -44,7 +44,6 @@ void drawCargo() {
   }
 }
 
-//Bookmark1
 //Check if cargo above, under, or next to player
 boolean checkForCargo() {
   if (key == RETURN || key == ENTER) {
